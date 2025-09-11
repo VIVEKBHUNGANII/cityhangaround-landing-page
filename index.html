@@ -430,7 +430,6 @@
     </script>
 
     <!-- popular cities -->
-
     <section class="trending-section">
       <div class="city-container">
         <h2 class="city-title">
@@ -438,9 +437,13 @@
         </h2>
         <h1>TRENDING CITIES</h1>
         <p>Discover what's happening in these amazing destinations</p>
+
         <div class="carousel">
-          <button class="carousel-btn prev">&#10094;</button>
-          <div class="cards-wrapper">
+          <!-- Prev Button -->
+          <button class="carousel-btn prev" id="cityPrev">&#10094;</button>
+
+          <!-- Cards Wrapper -->
+          <div class="cards-wrapper" id="cityWrapper">
             <div class="card">
               <div class="card-image">
                 <img src="./images/banglore.jpg" alt="Bangalore" />
@@ -449,7 +452,6 @@
               </div>
               <div class="card-content">
                 <h3>Bangalore</h3>
-                <p></p>
                 <p>8,336,817 people</p>
                 <p>
                   <span class="activities">1247 activities</span>
@@ -461,13 +463,12 @@
 
             <div class="card">
               <div class="card-image">
-                <img src="./images/delhi.jpg" alt="delhi" />
+                <img src="./images/delhi.jpg" alt="Delhi" />
                 <span class="badge trending">Trending</span>
                 <span class="badge rating">4.8⭐</span>
               </div>
               <div class="card-content">
                 <h3>Delhi</h3>
-                <p></p>
                 <p>9,540,576 people</p>
                 <p>
                   <span class="activities">892 activities</span>
@@ -485,7 +486,6 @@
               </div>
               <div class="card-content">
                 <h3>Mumbai</h3>
-                <p></p>
                 <p>2,161,000 people</p>
                 <p>
                   <span class="activities">634 activities</span>
@@ -503,7 +503,6 @@
               </div>
               <div class="card-content">
                 <h3>Kolkata</h3>
-                <p></p>
                 <p>13,960,000 people</p>
                 <p>
                   <span class="activities">- activities</span>
@@ -512,6 +511,7 @@
                 <button>Explore Kolkata</button>
               </div>
             </div>
+
             <div class="card">
               <div class="card-image">
                 <img src="./images/chennai.avif" alt="Chennai" />
@@ -520,7 +520,6 @@
               </div>
               <div class="card-content">
                 <h3>Chennai</h3>
-                <p></p>
                 <p>9,540,576 people</p>
                 <p>
                   <span class="activities">892 activities</span>
@@ -529,6 +528,7 @@
                 <button>Explore Chennai</button>
               </div>
             </div>
+
             <div class="card">
               <div class="card-image">
                 <img src="./images/hydrabad.webp" alt="Hyderabad" />
@@ -537,7 +537,6 @@
               </div>
               <div class="card-content">
                 <h3>Hyderabad</h3>
-                <p></p>
                 <p>9,540,576 people</p>
                 <p>
                   <span class="activities">892 activities</span>
@@ -547,22 +546,73 @@
               </div>
             </div>
           </div>
-          <div class="carousel">
-            <button class="carousel-btn prev">&#10094;</button>
-            <div class="cards-wrapper">
-              <!-- Your cards -->
-            </div>
-            <button class="carousel-btn next">&#10095;</button>
-          </div>
+
+          <!-- Next Button -->
+          <button class="carousel-btn next" id="cityNext">&#10095;</button>
         </div>
-        <div class="carousel-pagination"></div>
+
+        <!-- Pagination Dots -->
+        <div class="carousel-pagination" id="cityDots"></div>
       </div>
     </section>
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const wrapper = document.querySelector(".cards-wrapper");
+        const cards = document.querySelectorAll(".card");
+        const prevBtn = document.querySelector(".carousel-btn.prev");
+        const nextBtn = document.querySelector(".carousel-btn.next");
+        const pagination = document.querySelector(".carousel-pagination");
 
+        const cardWidth = cards[0].offsetWidth + 20; // card + margin
+        const totalCards = cards.length;
+        const totalPages = Math.ceil(wrapper.scrollWidth / wrapper.clientWidth);
+
+        let currentPage = 0;
+
+        // Create dots (1 dot = 1 page)
+        for (let i = 0; i < totalPages; i++) {
+          const dot = document.createElement("span");
+          dot.classList.add("dot");
+          if (i === 0) dot.classList.add("active");
+          dot.addEventListener("click", () => goToPage(i));
+          pagination.appendChild(dot);
+        }
+
+        const dots = pagination.querySelectorAll(".dot");
+
+        function updateButtons() {
+          prevBtn.style.display = currentPage === 0 ? "none" : "block";
+          nextBtn.style.display =
+            currentPage === totalPages - 1 ? "none" : "block";
+          dots.forEach((dot, i) => {
+            dot.classList.toggle("active", i === currentPage);
+          });
+        }
+
+        function goToPage(page) {
+          currentPage = Math.max(0, Math.min(page, totalPages - 1));
+          wrapper.scrollTo({
+            left: wrapper.clientWidth * currentPage,
+            behavior: "smooth",
+          });
+          updateButtons();
+        }
+
+        prevBtn.addEventListener("click", () => goToPage(currentPage - 1));
+        nextBtn.addEventListener("click", () => goToPage(currentPage + 1));
+
+        updateButtons();
+      });
+    </script>
     <!-- popular categories -->
     <h2 class="category-title">POPULAR CATEGORIES</h2>
 
     <div class="category-wrapper">
+      <!-- Scroll Buttons -->
+      <div class="scroll-btn scroll-left" id="scrollLeft" title="Scroll Left">
+        <i class="fas fa-chevron-left"></i>
+      </div>
+
       <div class="category-container" id="categoryContainer">
         <!-- Food -->
         <div class="category-card">
@@ -620,9 +670,46 @@
           <div class="browse-btn">Browse Education</div>
         </div>
       </div>
+
+      <div
+        class="scroll-btn scroll-right"
+        id="scrollRight"
+        title="Scroll Right"
+      >
+        <i class="fas fa-chevron-right"></i>
+      </div>
+
       <div class="category-dots" id="categoryDots"></div>
     </div>
 
+    <script>
+      const container = document.getElementById("categoryContainer");
+      const btnLeft = document.getElementById("scrollLeft");
+      const btnRight = document.getElementById("scrollRight");
+
+      btnLeft.addEventListener("click", () => {
+        container.scrollBy({ left: -300, behavior: "smooth" });
+      });
+
+      btnRight.addEventListener("click", () => {
+        container.scrollBy({ left: 300, behavior: "smooth" });
+      });
+
+      // Show/hide buttons based on scroll
+      function toggleScrollButtons() {
+        btnLeft.style.display = container.scrollLeft > 0 ? "flex" : "none";
+        btnRight.style.display =
+          container.scrollLeft + container.clientWidth < container.scrollWidth
+            ? "flex"
+            : "none";
+      }
+
+      container.addEventListener("scroll", toggleScrollButtons);
+      window.addEventListener("resize", toggleScrollButtons);
+
+      // Initialize
+      toggleScrollButtons();
+    </script>
     <!-- discovery section -->
 
     <section class="discovery-section">
@@ -1089,7 +1176,7 @@
       <!-- Testimonials Carousel -->
       <div class="test-container">
         <div class="test-track" id="testTrack">
-          <div class="testimonial-card active" data-video="1jveHrbRzmU">
+          <div class="testimonial-card" data-video="1jveHrbRzmU">
             <div class="video-container">
               <div class="video-placeholder">
                 <img

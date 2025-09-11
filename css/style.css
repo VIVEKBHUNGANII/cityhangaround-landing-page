@@ -257,7 +257,7 @@ body {
 /* Hero Container */
 .hero-container {
   position: relative;
-  height: 100vh;
+  height: 75vh;
   width: 100%;
   overflow: hidden;
 }
@@ -776,7 +776,7 @@ body {
   max-width: 1700px;
   position: relative;
   z-index: 1;
-  margin: 0px 50px;
+  margin: 0px 0px;
   padding: 0px 20px;
 }
 
@@ -796,7 +796,7 @@ h1 {
 }
 
 p {
-  color: #777;
+  color: #0c0c0c;
   margin-bottom: 5px;
   font-size: 20px;
 }
@@ -935,6 +935,8 @@ p {
   transform: translateY(-50%);
   background: #fff;
   border: none;
+  height: 40px;
+  width: 40px;
   font-size: 24px;
   border-radius: 50%;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
@@ -991,20 +993,22 @@ p {
 /* popular categories */
 
 .category-title {
-  font-size: 30px;
+  font-size: 34px;
   font-weight: 700;
   margin-bottom: 10px;
   margin-left: 33px;
   color: #111827;
+  text-align: center;
 }
 
 .category-wrapper {
+  position: relative; /* ✅ जरूरी है buttons position के लिए */
   cursor: grab;
   padding: 20px 0px;
   padding-left: 20px;
   text-align: left;
   gap: 20px;
-  overflow-x: hidden;
+  overflow-x: hidden; /* keep */
 }
 .category-wrapper.dragging {
   cursor: grabbing;
@@ -1134,11 +1138,11 @@ p {
 }
 
 .scroll-left {
-  left: -20px;
+  left: 15px;
 }
 
 .scroll-right {
-  right: -20px;
+  right: 15px;
 }
 .category-dots {
   display: flex;
@@ -1186,7 +1190,7 @@ p {
 
 .discovery-section p {
   font-size: 1.1em;
-  color: #666;
+  color: #0f0f0f;
   max-width: 600px;
   margin: 10px auto 30px;
 }
@@ -1236,8 +1240,8 @@ p {
 
 .icon-box {
   background-color: #f1efef;
-  width: 50px;
-  height: 50px;
+  width: 65px;
+  height: 65px;
   border-radius: 12px;
   display: flex;
   align-items: center;
