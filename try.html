@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>FAQ Section</title>
+    <style>
+      body {
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        background-color: #f0f2f5;
+        margin: 0;
+        padding: 0;
+      }
+
+      .faq {
+        max-width: 900px;
+        margin: 60px auto;
+        padding: 0 20px;
+      }
+
+      .faq h2 {
+        text-align: center;
+        margin-bottom: 40px;
+        color: #222;
+        font-size: 2.2em;
+      }
+
+      .faq ul {
+        list-style: none;
+        padding: 0;
+      }
+
+      .faq li {
+        background: #fff;
+        margin-bottom: 15px;
+        border-radius: 12px;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+        overflow: hidden;
+        transition: transform 0.3s, box-shadow 0.3s;
+      }
+
+      .faq li:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+      }
+
+      .faq a {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        text-decoration: none;
+        padding: 18px 25px;
+        color: #333;
+        font-weight: 500;
+        cursor: pointer;
+        position: relative;
+        transition: background 0.3s, color 0.3s;
+      }
+
+      .faq a:hover {
+        background: linear-gradient(90deg, #f6d365, #fda085);
+        color: #fff;
+      }
+
+      .faq .icon {
+        font-size: 20px;
+        font-weight: bold;
+        transition: transform 0.4s ease;
+        color: #f6a623;
+      }
+
+      .faq li.active .icon {
+        transform: rotate(45deg);
+      }
+
+      .faq p {
+        max-height: 0;
+        overflow: hidden;
+        margin: 0;
+        padding: 0 25px;
+        color: #555;
+        line-height: 1.7;
+        transition: max-height 0.6s ease, padding 0.6s ease, opacity 0.6s ease;
+        opacity: 0;
+      }
+
+      .faq li.active p {
+        padding: 15px 25px 20px;
+        max-height: 1000px;
+        opacity: 1;
+      }
+
+      /* Mobile responsive */
+      @media (max-width: 768px) {
+        .faq h2 {
+          font-size: 1.8em;
+        }
+        .faq a {
+          padding: 15px 20px;
+          font-size: 0.95em;
+        }
+        .faq p {
+          padding: 12px 20px 15px;
+          font-size: 0.92em;
+        }
+      }
+
+      @media (max-width: 480px) {
+        .faq h2 {
+          font-size: 1.6em;
+        }
+        .faq a {
+          flex-direction: row;
+          justify-content: space-between;
+          padding: 12px 18px;
+          font-size: 0.9em;
+        }
+        .faq p {
+          padding: 0px 0px 0px;
+          font-size: 0.88em;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <section id="faq" class="faq">
+      <h2>Frequently Asked Questions</h2>
+      <ul>
+        <li>
+          <a
+            ><span>How cityhangaround help us?</span>
+            <span class="icon">+</span></a
+          >
+          <p>
+            Cityhangaround promotes your business and product in your local area
+            that helps you to get new customers and sales. It provides local
+            online marketing solutions for your business at very low cost.
+          </p>
+        </li>
+        <li>
+          <a
+            ><span>Which type of business can be listed here?</span>
+            <span class="icon">+</span></a
+          >
+          <p>
+            There are many types of businesses that can be listed here. Some
+            examples include: Small businesses, Local businesses, Service
+            businesses, Retail businesses, Online businesses, Wholesale
+            businesses, Import/export businesses, Franchise businesses.
+          </p>
+        </li>
+        <li>
+          <a
+            ><span>What cost do I have to pay for a listing?</span>
+            <span class="icon">+</span></a
+          >
+          <p>
+            There is no cost for listing your business and adding products and
+            services. But for promotion of your business we have affordable paid
+            plans according to the requirements of your business. You can select
+            any paid plan according to your budget and enjoy the growth of your
+            business.
+          </p>
+        </li>
+        <li>
+          <a
+            ><span>Can we add our products?</span>
+            <span class="icon">+</span></a
+          >
+          <p>
+            Yes, you can login via your registered email id and add products,
+            deals, and offers.
+          </p>
+        </li>
+        <li>
+          <a
+            ><span>Can I see how many people viewed my listing?</span>
+            <span class="icon">+</span></a
+          >
+          <p>
+            Yes! Go to your listing and you can see the total visitors and the
+            daily visitors of your listing.
+          </p>
+        </li>
+        <li>
+          <a
+            ><span>What will be the benefits of doing listing?</span>
+            <span class="icon">+</span></a
+          >
+          <p>
+            Your business gets more visibility in your area and you may get more
+            customers with the help of this free listing.
+          </p>
+        </li>
+        <li>
+          <a
+            ><span>What details do I have to put in the listing?</span>
+            <span class="icon">+</span></a
+          >
+          <p>
+            You have to add the name of your business, contact details,
+            address/location, and products/services/deals/offers you are
+            providing.
+          </p>
+        </li>
+      </ul>
+    </section>
+
+    <script>
+      const faqItems = document.querySelectorAll(".faq li");
+
+      faqItems.forEach((item) => {
+        const link = item.querySelector("a");
+        link.addEventListener("click", () => {
+          const isActive = item.classList.contains("active");
+
+          faqItems.forEach((otherItem) => {
+            otherItem.classList.remove("active");
+          });
+
+          if (!isActive) {
+            item.classList.add("active");
+          }
+        });
+      });
+    </script>
+  </body>
+</html>

@@ -32,6 +32,19 @@
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
     />
+
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css"
+    />
     <link rel="stylesheet" href="./css/style.css" />
 
     <!-- <link
@@ -43,45 +56,189 @@
       href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Roboto:wght@400;500&display=swap"
       rel="stylesheet"
     />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+        <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
 
     <script
       src="https://kit.fontawesome.com/a076d05399.js"
       crossorigin="anonymous"
     ></script>
+     <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
+    <!-- Custom CSS for Circle & Animation -->
+
   </head>
+
   <body>
-    <header class="header">
-      <img src="./images/logoheader.png" alt="Logo" class="logo" />
+    <header class="fixed-top bg-white shadow-sm d-flex align-items-center px-3 " style="
+    height: 4rem;
+">
+      <!-- Logo -->
+      <div class="me-4">
+        <img
+          src="https://cdn.cityhangaround.com/file/cityhangaround/uploads/wYMNRNks5mOFSD2V1eOkZbjeH0m3dhFpyT79tsHW.png"
+          alt="Logo"
+          class="img-fluid"
+          style="height: 48px"
+        />
+      </div>
 
-      <button class="menu-toggle" id="menuToggle">
-        <i class="fas fa-bars"></i>
-      </button>
+      <!-- Center Content -->
+      <div class="d-none d-lg-flex flex-grow-1 justify-content-center">
+        <div class="d-flex align-items-center gap-3 search-box">
+          <!-- Location Dropdown -->
+          <div class="dropdown">
+            <button
+              class="btn btn-link text-dark fw-semibold d-flex align-items-center p-0"
+              type="button"
+              id="cityDropdownButton"
+              data-bs-toggle="dropdown"
+              aria-expanded="false"
+              style="text-decoration: none"
+            >
+              <i class="fas fa-map-marker-alt text-danger me-2"></i>
+              <span id="selectedCity">Ahmedabad</span>
+              <i class="fas fa-chevron-down text-secondary ms-2"></i>
+            </button>
+            <ul
+              class="dropdown-menu dropdown-menu-custom shadow"
+              aria-labelledby="cityDropdownButton"
+            >
+              <li>
+                <a
+                  class="dropdown-item"
+                  href="#"
+                  onclick="selectCity('Ahmedabad')"
+                  >Ahmedabad</a
+                >
+              </li>
+              <li>
+                <a class="dropdown-item" href="#" onclick="selectCity('Mumbai')"
+                  >Mumbai</a
+                >
+              </li>
+              <li>
+                <a class="dropdown-item" href="#" onclick="selectCity('Delhi')"
+                  >Delhi</a
+                >
+              </li>
+              <li>
+                <a
+                  class="dropdown-item"
+                  href="#"
+                  onclick="selectCity('Bangalore')"
+                  >Bangalore</a
+                >
+              </li>
+            </ul>
+          </div>
 
-      <nav class="nav" id="nav">
-        <div class="city-search">
-          <div class="home-icon"><i class="fa-solid fa-house"></i></div>
+          <!-- Divider -->
+          <div class="vr mx-3"></div>
 
-          <select class="city-dropdown">
-            <option>City</option>
-            <option>Haldwani UK</option>
-            <option>Nirmal</option>
-            <option>Secunderabad</option>
-            <option>Mahbubnagar</option>
-          </select>
-
-          <input type="text" placeholder="Search..." class="search-box" />
-          <button class="search-btn-head"><i class="fas fa-search"></i></button>
-
-          <div class="action-buttons">
-            <a href="https://www.cityhangaround.com/login" target="_blank"
-              ><button class="header-btn-login">Login</button>
-            </a>
-            <button class="header-btn">Add Business</button>
-            <button class="header-btn outline">Post Requirement</button>
+          <!-- Search -->
+          <div class="d-flex flex-grow-1 align-items-center text-muted">
+            <i class="fas fa-search me-2 text-secondary"></i>
+            <input
+              type="text"
+              placeholder="Search for 'Restaurant' , 'Business' "
+              class="form-control border-0 shadow-none p-0 bg-transparent"
+              style="font-size: 0.9rem"
+            />
           </div>
         </div>
+      </div>
+
+      <!-- Right Actions -->
+      <nav class="d-none d-lg-flex align-items-center ms-auto gap-3">
+        <!-- Dropdown: For Business -->
+        <div class="nav-item dropdown">
+          <a
+            class="nav-link fw-medium"
+            href="#"
+            id="businessDropdown"
+            role="button"
+            data-bs-toggle="dropdown"
+            aria-expanded="false"
+          >
+            For Business ▾
+          </a>
+          <ul class="dropdown-menu shadow" aria-labelledby="businessDropdown">
+            <li>
+              <a class="dropdown-item" href="#"
+                >Add Business
+                <span
+                  class="badge bg-orange-600 text-white rounded-pill"
+                  style="font-size: 0.6rem"
+                  >NEW</span
+                ></a
+              >
+            </li>
+            <li><a class="dropdown-item" href="#">Listings</a></li>
+            <li><a class="dropdown-item" href="#">Explore Business</a></li>
+            <li><a class="dropdown-item" href="#">List your Product</a></li>
+            <li><a class="dropdown-item" href="#">About Business</a></li>
+          </ul>
+        </div>
+
+        <!-- Dropdown: For City Guide -->
+        <div class="nav-item dropdown">
+          <a
+            class="nav-link fw-medium"
+            href="#"
+            id="cityGuideDropdown"
+            role="button"
+            data-bs-toggle="dropdown"
+            aria-expanded="false"
+          >
+            For City Guide ▾
+          </a>
+          <ul class="dropdown-menu shadow" aria-labelledby="cityGuideDropdown">
+            <li>
+              <a class="dropdown-item" href="#"
+                >Post Requirement
+                <span
+                  class="badge bg-orange-600 text-white rounded-pill"
+                  style="font-size: 0.6rem"
+                  >NEW</span
+                ></a
+              >
+            </li>
+            <li><a class="dropdown-item" href="#">Local Business</a></li>
+            <li><a class="dropdown-item" href="#">Service Providers</a></li>
+            <li><a class="dropdown-item" href="#">Explore city</a></li>
+          </ul>
+        </div>
+
+        <!-- Chat Button -->
+        <button class="btn btn-light rounded-circle">
+          <i class="fas fa-comment-dots text-secondary"></i>
+        </button>
+
+        <!-- Notification Button -->
+        <button class="btn btn-light rounded-circle">
+          <i class="fas fa-bell text-secondary"></i>
+        </button>
+
+        <!-- Login Button -->
+        <a href="#" class="btn text-white" style="background: #ff4939">
+          <i class="fas fa-sign-in-alt me-2"></i> Login/Register
+        </a>
       </nav>
     </header>
+
 
     <!-- ===== Scripts ===== -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
@@ -100,72 +257,1477 @@
         class="bg-video"
         poster="https://images.pexels.com/photos/2224861/pexels-photo-2224861.jpeg?auto=compress&cs=tinysrgb&w=1920&h=1080"
       >
-        <source src="./images/backgroundvideo.mp4" type="video/mp4" />
+        <source
+          src="./images/Hailuo_Video_i want to animated this video _428941074833387529.mp4"
+          type="video/mp4"
+        />
         Your browser does not support the video tag.
       </video>
 
-      <!-- Enhanced Overlays -->
-      <div class="overlay-primary"></div>
-      <div class="overlay-secondary"></div>
-      <div class="overlay-gradient"></div>
+      <!-- Dark Overlay -->
+      <div class="overlay-dark"></div>
 
-      <!-- Main Content -->
-      <div class="content" id="mainContent">
-        <!-- Animated Badge -->
+      <!-- Content -->
+      <div class="content">
+        <!-- Badge -->
         <div class="badge-container">
           <div class="location-badge">
-            <div class="location-icon"></div>
             <span class="badge-text">🌍 Explore Without Limitations</span>
           </div>
         </div>
 
-        <!-- Enhanced Title -->
+        <!-- Title -->
         <h1 class="title">
           <span class="title-main">DISCOVER WHAT YOU ARE</span>
           <span class="title-highlight">looking for</span>
-          <span class="title-subtitle"
-            >The City's Best Events, Deals, Places, Stories & Many more</span
-          >
         </h1>
+        <p class="title-subtitle">
+          The City's Best Events, Deals, Places, Stories & Many more
+        </p>
 
-        <!-- Glassmorphism Search Section -->
-        <!-- <div class="search-container">
-          <div class="search-wrapper">
-            <div class="search-icon">🔍</div>
-            <input
-              id="look"
-              type="text"
-              placeholder="What are you looking for?"
-              class="search-input"
-            />
-            <button class="search-btn">Search</button>
-          </div>
-        </div> -->
-
-        <!-- Action Buttons -->
+        <!-- Buttons -->
         <div class="buttons-container">
-          <button id="btn1" class="btn btn-primary">
-            <span class="btn-icon">▶</span>
-            <span class="btn-text">Start Exploring</span>
+          <button class="btn1 btn-primary">
+            ▶ Start Exploring
             <div class="btn-ripple"></div>
           </button>
-
-          <a
-            href="https://www.cityhangaround.com/login"
-            target="_blank"
-            class="btn-link"
-          >
-            <a href="https://www.cityhangaround.com/login" target="_blank"
-              ><button id="btn2" class="btn btn-secondary">
-                <span class="btn-icon">📅</span>
-                <span class="btn-text">Post an Activity</span>
-                <div class="btn-ripple"></div></button
-            ></a>
+          <a href="https://www.cityhangaround.com/login" target="_blank">
+            <button class="btn2 btn-secondary">
+              📅 Post an Activity
+              <div class="btn-ripple"></div>
+            </button>
           </a>
         </div>
       </div>
     </div>
+
+   
+
+    <!-- popular cities -->
+    <section class="trending-section">
+      <div class="city-container">
+        <h2 class="city-title">
+          <span class="icon">🔥</span> Popular Destinations
+        </h2>
+        <h1>TRENDING CITIES</h1>
+        <p>Discover what's happening in these amazing destinations</p>
+
+        <div class="carousel">
+          <!-- Prev Button -->
+          <button class="carousel-btn prev" id="cityPrev">&#10094;</button>
+
+          <!-- Cards Wrapper -->
+          <div class="cards-wrapper" id="cityWrapper">
+            <div class="card">
+              <div class="card-image">
+                <img src="./images/banglore.jpg" alt="Bangalore" />
+                <span class="badge trending">Trending</span>
+                <span class="badge rating">4.8⭐</span>
+              </div>
+              <div class="card-content">
+                <h3>Bangalore</h3>
+                <p>8,336,817 people</p>
+                <p>
+                  <span class="activities">1247 activities</span>
+                  <span class="growth">+9% this month</span>
+                </p>
+                <button>Explore Bangalore</button>
+              </div>
+            </div>
+
+            <div class="card">
+              <div class="card-image">
+                <img src="./images/delhi.jpg" alt="Delhi" />
+                <span class="badge trending">Trending</span>
+                <span class="badge rating">4.8⭐</span>
+              </div>
+              <div class="card-content">
+                <h3>Delhi</h3>
+                <p>9,540,576 people</p>
+                <p>
+                  <span class="activities">892 activities</span>
+                  <span class="growth">+14% this month</span>
+                </p>
+                <button>Explore Delhi</button>
+              </div>
+            </div>
+
+            <div class="card">
+              <div class="card-image">
+                <img src="./images/mumbai.jpg" alt="Mumbai" />
+                <span class="badge trending">Trending</span>
+                <span class="badge rating">4.8⭐</span>
+              </div>
+              <div class="card-content">
+                <h3>Mumbai</h3>
+                <p>2,161,000 people</p>
+                <p>
+                  <span class="activities">634 activities</span>
+                  <span class="growth">+5% this month</span>
+                </p>
+                <button>Explore Mumbai</button>
+              </div>
+            </div>
+
+            <div class="card">
+              <div class="card-image">
+                <img src="./images/kolkata.avif" alt="Kolkata" />
+                <span class="badge trending">Trending</span>
+                <span class="badge rating">4.8⭐</span>
+              </div>
+              <div class="card-content">
+                <h3>Kolkata</h3>
+                <p>13,960,000 people</p>
+                <p>
+                  <span class="activities">- activities</span>
+                  <span class="growth">--</span>
+                </p>
+                <button>Explore Kolkata</button>
+              </div>
+            </div>
+
+            <div class="card">
+              <div class="card-image">
+                <img src="./images/chennai.avif" alt="Chennai" />
+                <span class="badge trending">Trending</span>
+                <span class="badge rating">4.8⭐</span>
+              </div>
+              <div class="card-content">
+                <h3>Chennai</h3>
+                <p>9,540,576 people</p>
+                <p>
+                  <span class="activities">892 activities</span>
+                  <span class="growth">+14% this month</span>
+                </p>
+                <button>Explore Chennai</button>
+              </div>
+            </div>
+
+            <div class="card">
+              <div class="card-image">
+                <img src="./images/hydrabad.webp" alt="Hyderabad" />
+                <span class="badge trending">Trending</span>
+                <span class="badge rating">4.8⭐</span>
+              </div>
+              <div class="card-content">
+                <h3>Hyderabad</h3>
+                <p>9,540,576 people</p>
+                <p>
+                  <span class="activities">892 activities</span>
+                  <span class="growth">+14% this month</span>
+                </p>
+                <button>Explore Hyderabad</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Next Button -->
+          <button class="carousel-btn next" id="cityNext">&#10095;</button>
+        </div>
+
+        <!-- Pagination Dots -->
+        <div class="carousel-pagination" id="cityDots"></div>
+      </div>
+    </section>
+
+
+    <!-- popular categories -->
+    <h2 class="category-title">POPULAR CATEGORIES</h2>
+
+    <section class="py-5">
+      <div class="container">
+        <div class="row text-center g-4 justify-content-center">
+          <!-- Category: Food -->
+          <div class="col-6 col-md-3 col-lg-2">
+            <a href="#" class="category-link">
+              <div class="category-card">
+                <img
+                  src="https://img.icons8.com/color/96/food.png"
+                  alt="Food"
+                />
+              </div>
+              <h6>Food</h6>
+            </a>
+          </div>
+
+          <!-- Category: Health -->
+          <div class="col-6 col-md-3 col-lg-2">
+            <a href="#" class="category-link">
+              <div class="category-card">
+                <img
+                  src="https://png.pngtree.com/png-clipart/20200710/original/pngtree-medical-health-logo-png-image_4135905.jpg"
+                  alt="Health"
+                />
+              </div>
+              <h6>Health</h6>
+            </a>
+          </div>
+
+          <!-- Category: Education -->
+          <div class="col-6 col-md-3 col-lg-2">
+            <a href="#" class="category-link">
+              <div class="category-card">
+                <img
+                  src="https://img.icons8.com/color/96/school.png"
+                  alt="Education"
+                />
+              </div>
+              <h6>Education</h6>
+            </a>
+          </div>
+
+          <!-- Category: Home Service -->
+          <div class="col-6 col-md-3 col-lg-2">
+            <a href="#" class="category-link">
+              <div class="category-card">
+                <img
+                  src="https://img.icons8.com/color/96/maintenance.png"
+                  alt="Home Service"
+                />
+              </div>
+              <h6>Home Repair</h6>
+            </a>
+          </div>
+        </div>
+        <div class="row text-center g-4 mt-3 justify-content-center">
+          <!-- Category: Food -->
+          <div class="col-6 col-md-3 col-lg-2">
+            <a href="#" class="category-link">
+              <div class="category-card">
+                <img
+                  src="https://img.freepik.com/free-vector/seasonal-sale-discounts-presents-purchase-visiting-boutiques-luxury-shopping-price-reduction-promotional-coupons-special-holiday-offers-vector-isolated-concept-metaphor-illustration_335657-2766.jpg?semt=ais_hybrid&w=740&q=80"
+                  alt="Food"
+                />
+              </div>
+              <h6>Shopping</h6>
+            </a>
+          </div>
+
+          <!-- Category: Health -->
+          <div class="col-6 col-md-3 col-lg-2">
+            <a href="#" class="category-link">
+              <div class="category-card">
+                <img
+                  src="https://cdn-icons-gif.flaticon.com/17905/17905363.gif"
+                  alt="Health"
+                />
+              </div>
+              <h6>Event</h6>
+            </a>
+          </div>
+
+          <!-- Category: Education -->
+          <div class="col-6 col-md-3 col-lg-2">
+            <a href="#" class="category-link">
+              <div class="category-card">
+                <img
+                  src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTmNHLC5OThjRU_GI-DsRzOMJaKu9gMJXa15w&s"
+                  alt="Education"
+                />
+              </div>
+              <h6>Community</h6>
+            </a>
+          </div>
+
+          <!-- Category: Home Service -->
+          <div class="col-6 col-md-3 col-lg-2">
+            <a href="#" class="category-link">
+              <div class="category-card">
+                <img
+                  src="https://img.freepik.com/premium-vector/trending-now-typography-sticker-flat-style_9206-29985.jpg?semt=ais_hybrid&w=740&q=80"
+                  alt="Home Service"
+                />
+              </div>
+              <h6>Trending</h6>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- discovery section -->
+
+    <section class="discovery-section">
+      <h2>GET DISCOVERED BY <span>local customers</span></h2>
+      <p>
+        Join 3,200+ businesses that are already connecting with their community.
+        From restaurants to fitness studios, we help you reach the right
+        audience.
+      </p>
+
+      <div class="cards-wrapper-discovery">
+        <!-- Card 1 -->
+        <div class="info-card-discovery">
+          <div class="card-content-discovery">
+            <h3>Reach 89K+ Local Customers</h3>
+            <p>
+              Connect with thousands of potential customers actively searching
+              in your area and get noticed faster than ever before.
+            </p>
+            <div class="stat-box-discovery">
+              <strong>3x more visibility</strong><br />
+              <span>Average improvement</span>
+            </div>
+          </div>
+          <!-- <img
+            src="https://www.getmarvia.com/hs-fs/hubfs/lokale%20zoekopdrachten.webp?width=500&height=269&name=lokale%20zoekopdrachten.webp"
+            class="card-image-discovery"
+          /> -->
+          <img
+           src="./images/rech-local-customers.png"
+            class="card-image-discovery"
+          />
+        </div>
+
+        <!-- Card 2 -->
+        <div class="info-card-discovery">
+          <!-- <img
+            src="https://www.datameer.com/wp-content/uploads/2018/02/Revenue-Increase-Featured-Image--909x504.png"
+            alt="Boost Revenue"
+            class="card-image-discovery"
+          /> -->
+          <img
+            src="./images/boost-revenue.png"
+            alt="Boost Revenue"
+            class="card-image-discovery"
+          />
+          <div class="card-content-discovery">
+            <h3>Boost Your Revenue</h3>
+            <p>
+              Businesses experience an average of 40% growth in bookings within
+              just 3 months of joining our platform.
+            </p>
+            <div class="stat-box-discovery">
+              <strong>40% revenue boost</strong><br />
+              <span>Average improvement</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="info-card-discovery">
+          <div class="card-content-discovery">
+            <h3>Build Your Reputation</h3>
+            <p>
+              Collect verified reviews, improve credibility, and showcase your
+              business as the trusted choice in your community.
+            </p>
+            <div class="stat-box-discovery">
+              <strong>4.8★ avg rating</strong><br />
+              <span>Average improvement</span>
+            </div>
+          </div>
+          <img
+            src="./images/Gemini_Generated_Image_796bhk796bhk796b.png"
+            alt="Build Reputation"
+            class="card-image-discovery"
+          />
+          <!-- <img
+            src="https://i0.wp.com/priyanarasimhan.com/wp-content/uploads/2021/02/chess-1483735_1920.jpg?w=1920&ssl=1"
+            alt="Build Reputation"
+            class="card-image-discovery"
+          /> -->
+        </div>
+      </div>
+    </section>
+
+    <!-- reach customer -->
+
+    <!-- HERO SECTION -->
+    <section class="hero">
+      <div class="container">
+        <div class="row align-items-center">
+          <!-- LEFT: Content -->
+          <div class="col-md-6">
+            <div class="hero-badge">
+              <span>⭐ Trusted by 10,000+ businesses</span>
+            </div>
+            <h1 class="hero-title">
+              Reach Local Customers &
+              <span class="gradient-text">Grow Your Business</span>
+            </h1>
+            <p class="hero-description">
+              Connect with your community, showcase your offerings, and build
+              lasting relationships with local customers.
+            </p>
+            <div class="hero-buttons">
+              <button class="primary-button">Register Now - It's Free!</button>
+              <button class="secondary-button">Watch Demo</button>
+            </div>
+          </div>
+
+          <!-- RIGHT: Image -->
+          <div class="col-md-6 text-center mt-5 mt-md-0">
+            <!-- <img src="./images/2836501.jpg" alt="Business Growth" class="hero-img"> -->
+            <!-- <img src="./images/5006590.jpg" alt="Business Growth" class="hero-img"> -->
+            <!-- <img
+              src="./images/6922145.jpg"
+              alt="Business Growth"
+              class="hero-img"
+            /> -->
+            <video
+              autoplay
+              muted
+              loop
+              style="width: 35rem;""
+              poster="https://images.pexels.com/photos/2224861/pexels-photo-2224861.jpeg?auto=compress&cs=tinysrgb&w=1920&h=1080"
+            >
+              <source src="./images/handshake.mp4" type="video/mp4" />
+              Your browser does not support the video tag.
+            </video>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Features -->
+    <!-- <section id="features" class="features">
+      <div class="features-wrapper">
+        <button class="scroll-btn-fe left-btn-fe">
+          <i class="fas fa-chevron-left"></i>
+        </button>
+        <div class="features-scroll-container">
+          <div class="features-container">
+            <div class="feature-card">
+              <i class="fas fa-building feature-icon"></i>
+              <h3 class="feature-title">Add Business Listing</h3>
+              <p class="feature-description">
+                Showcase your business details, services, and contact info.
+              </p>
+              <button class="feature-button">Get Started →</button>
+            </div>
+            <div class="feature-card">
+              <i class="fas fa-tags feature-icon"></i>
+              <h3 class="feature-title">Add Deals</h3>
+              <p class="feature-description">
+                Attract new customers with offers, discounts, and promotions.
+              </p>
+              <button class="feature-button">Create Deal →</button>
+            </div>
+            <div class="feature-card">
+              <i class="fas fa-calendar-alt feature-icon"></i>
+              <h3 class="feature-title">Add Events</h3>
+              <p class="feature-description">
+                Promote community events, workshops, and networking
+                opportunities.
+              </p>
+              <button class="feature-button">Plan Event →</button>
+            </div>
+            <div class="feature-card">
+              <i class="fas fa-user-friends feature-icon"></i>
+              <h3 class="feature-title">Work with Influencers</h3>
+              <p class="feature-description">
+                Connect with local personalities to expand your brand.
+              </p>
+              <button class="feature-button">Find Influencers →</button>
+            </div>
+            <div class="feature-card">
+              <i class="fas fa-blog feature-icon"></i>
+              <h3 class="feature-title">Add Blog</h3>
+              <p class="feature-description">
+                Share industry insights, stories, and updates through blogging.
+              </p>
+              <button class="feature-button">Write Blog →</button>
+            </div>
+
+            <div class="feature-card">
+              <i class="fas fa-users feature-icon"></i>
+              <h3 class="feature-title">Join Community</h3>
+              <p class="feature-description">
+                Engage with like-minded individuals and businesses locally.
+              </p>
+              <button class="feature-button">Join Now →</button>
+            </div>
+
+            <div class="feature-card">
+              <i class="fas fa-video feature-icon"></i>
+              <h3 class="feature-title">Trending Videos</h3>
+              <p class="feature-description">
+                Discover and share popular video content around your niche.
+              </p>
+              <button class="feature-button">Explore Now →</button>
+            </div>
+          </div>
+        </div>
+        <button class="scroll-btn-fe right-btn-fe">
+          <i class="fas fa-chevron-right"></i>
+        </button>
+      </div>
+      <div class="feature-dots" id="featureDots"></div>
+    </section> -->
+  
+    <!-- new latest 2 2  -->/
+     <section id="features" class="features">
+  <div class="container">
+    <div class="row g-4">
+      <!-- Business -->
+      <div class="col-md-6">
+        <div class="feature-card text-center p-4 shadow-sm h-100">
+          <!-- Icon with circle -->
+          <div class="icon-circle mb-3 mx-auto">
+            <i class="fas fa-building"></i>
+          </div>
+          <h3 class="feature-title">Add Business</h3>
+          <p class="feature-description">
+            Showcase your business details, services, and contact info.
+          </p>
+          <button class="btn btn-outline-danger">
+            Get Started →
+          </button>
+        </div>
+      </div>
+
+
+      <!-- Deals -->
+      <div class="col-md-6">
+        <div class="feature-card text-center p-4 shadow-sm h-100">
+          <div class="icon-circle mb-3 mx-auto">
+            <i class="fas fa-tags"></i>
+          </div>
+           <h3 class="feature-title">Add Deals</h3>
+          <p class="feature-description">
+            Attract new customers with offers, discounts, and promotions.
+          </p>
+          <button class="btn btn-outline-danger">
+            Create Deal →
+          </button>
+        </div>
+      </div>
+
+      <!-- Events -->
+      <div class="col-md-6">
+        <div class="feature-card text-center p-4 shadow-sm h-100">
+           <div class="icon-circle mb-3 mx-auto">         
+              <i class="fas fa-calendar-alt "></i>
+          </div>
+          <h3 class="feature-title">Add Events</h3>
+          <p class="feature-description">
+            Promote community events, workshops, and networking opportunities.
+          </p>
+          <button class="btn btn-outline-danger">
+            Plan Event →
+          </button>
+        </div>
+      </div>
+
+      <!-- Influencers -->
+      <div class="col-md-6">
+        <div class="feature-card text-center p-4 shadow-sm h-100">
+           <div class="icon-circle mb-3 mx-auto">     
+            <i class="fas fa-user-friends "></i>
+          </div>
+          <h3 class="feature-title">Influencers</h3>
+          <p class="feature-description">
+            Connect with local personalities to expand your brand.
+          </p>
+          <button class="btn btn-outline-danger">
+            Find Influencers →
+          </button>
+        </div>
+      </div>
+
+      <!-- Blog -->
+      <div class="col-md-6">
+        <div class="feature-card text-center p-4 shadow-sm h-100">
+           <div class="icon-circle mb-3 mx-auto">       
+             <i class="fas fa-blog "></i>
+          </div>
+          <h3 class="feature-title">Add Blog</h3>
+          <p class="feature-description">
+            Share industry insights, stories, and updates through blogging.
+          </p>
+          <button class="btn btn-outline-danger">
+            Write Blog →
+          </button>
+        </div>
+      </div>
+
+      <!-- Community -->
+      <div class="col-md-6">
+        <div class="feature-card text-center p-4 shadow-sm h-100">
+           <div class="icon-circle mb-3 mx-auto">          
+             <i class="fas fa-users "></i>
+           </div>
+          <h3 class="feature-title">Join Community</h3>
+          <p class="feature-description">
+            Engage with like-minded individuals and businesses locally.
+          </p>
+          <button class="btn btn-outline-danger">
+            Join Now →
+          </button>
+        </div>
+      </div>
+
+      <!-- Videos -->
+      <div class="col-md-6">
+        <div class="feature-card text-center p-4 shadow-sm h-100">
+           <div class="icon-circle mb-3 mx-auto">          
+             <i class="fas fa-video "></i>
+           </div>
+          <h3 class="feature-title">Trending Videos</h3>
+          <p class="feature-description">
+            Discover and share popular video content around your niche.
+          </p>
+          <button class="btn btn-outline-danger">
+            Explore Now →
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+    <!-- explore city hangaround -->
+
+    <div class="container-explore">
+      <div class="header-explore">
+        <h2>
+          Explore
+          <span
+            style="
+              background: linear-gradient(90deg, #ff4d3a, #ff874d);
+              -webkit-background-clip: text;
+              -webkit-text-fill-color: transparent;
+            "
+            >cityhangaround</span
+          >
+          now
+        </h2>
+      </div>
+
+      <!-- <div class="stats-container">
+        <section class="stats-section" id="statsSection">
+          <div class="stat">
+            <div class="icon-explore">📈</div>
+            <h2 class="count" data-target="100000">0</h2>
+            <p>Business Listed</p>
+          </div>
+          <div class="stat">
+            <div class="icon-explore">👥</div>
+            <h2 class="count" data-target="2000">0</h2>
+            <p>Happy Clients</p>
+          </div>
+          <div class="stat">
+            <div class="icon-explore">🎯</div>
+            <h2 class="count" data-target="1000">0</h2>
+            <p>Campaign Complete</p>
+          </div>
+          <div class="stat">
+            <div class="icon-explore">🏆</div>
+            <h2 class="count" data-target="15">0</h2>
+            <p>Years Experience</p>
+          </div>
+        </section>
+      </div> -->
+    </div>
+    <!-- //new counters ........  -->/
+    <section class="counter-section">
+      <div class="container">
+        <div class="row align-items-center">
+          <!-- Left image -->
+          <div class="col-md-6 text-center mb-4 mb-md-0">
+            <img
+              src="./images/local-deal.png"
+              alt="Traveler"
+              class="img-fluid rounded"
+            />
+            <!-- <img
+              src="https://themedox.com/demo/tourex/assets/img/about/su/thumb.png"
+              alt="Traveler"
+              class="img-fluid rounded"
+            /> -->
+          </div>
+
+          <!-- Right content -->
+          <div class="col-md-6">
+            <span class="tagline">Who We Are</span>
+            <h2>
+              Here Is Great Opportunity For <br />
+              Business & Advertisement
+            </h2>
+            <p class="mt-3">
+              Welcome to CityHang Around — your one-stop destination for
+              discovering local businesses, exploring marketplace deals, and
+              promoting your brand through powerful advertisements. Whether
+              you're a customer searching for trusted services or a business
+              looking to grow your presence, CityHang Around connects
+              communities with opportunities. Start listing, exploring, and
+              advertising today!
+            </p>
+
+            <!-- Counters -->
+            <div class="row mt-4">
+              <div class="col-4 counter-item">
+                <img
+                  src="https://img.icons8.com/ios-filled/50/000000/worldwide-location.png"
+                />
+                <h4>5,000+</h4>
+                <p>Business Listed</p>
+              </div>
+              <div class="col-4 counter-item">
+                <img
+                  src="https://img.icons8.com/?size=50&id=yXBNCr2DEgJN&format=png&color=000000"
+                />
+                <h4>3,000+</h4>
+                <p>Campaign Completed</p>
+              </div>
+              <div class="col-4 counter-item">
+                <img
+                  src="https://img.icons8.com/ios-filled/50/000000/smiling.png"
+                />
+                <h4>11,000+</h4>
+                <p>Happy Clients</p>
+              </div>
+              <div class="col-4 counter-item mt-3">
+                <img
+                  src="https://img.icons8.com/?size=50&id=2koI9uU0dBK7&format=png&color=1A1A1A"
+                />
+                <h4>15+</h4>
+                <p>Years of Experience</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    
+    <!-- client section -->
+
+    <!-- <section class="clients-section">
+      <div class="ci-container">
+        <div class="section-header">
+          <span class="client-badge">Trusted Partners</span>
+          <h2>Our <span class="highlight">Clients</span></h2>
+          <p class="subtitle">
+            Companies that trust us to deliver exceptional results
+          </p>
+        </div>
+
+        <div class="client-slider">
+  <div class="client-track">
+    
+    <div class="client-card"><img src="images/client1.png" alt="TechCorp"></div>
+    <div class="client-card"><img src="images/client2.png" alt="InnovateLab"></div>
+    <div class="client-card"><img src="images/client3.png" alt="QuantumSoft"></div>
+    <div class="client-card"><img src="images/client4.png" alt="EcoSolutions"></div>
+    <div class="client-card"><img src="images/client1.png" alt="DataFlow"></div>
+    <div class="client-card"><img src="images/client2.png" alt="CloudNine"></div>
+    <div class="client-card"><img src="images/client3.png" alt="FinanceHub"></div>
+    <div class="client-card"><img src="images/client4.png" alt="HealthTech"></div>
+
+   
+    <div class="client-card"><img src="images/client1.png" alt="TechCorp"></div>
+    <div class="client-card"><img src="images/client2.png" alt="InnovateLab"></div>
+    <div class="client-card"><img src="images/client3.png" alt="QuantumSoft"></div>
+    <div class="client-card"><img src="images/client4.png" alt="EcoSolutions"></div>
+    <div class="client-card"><img src="images/client1.png" alt="DataFlow"></div>
+    <div class="client-card"><img src="images/client2.png" alt="CloudNine"></div>
+    <div class="client-card"><img src="images/client3.png" alt="FinanceHub"></div>
+    <div class="client-card"><img src="images/client4.png" alt="HealthTech"></div>
+  </div>
+</div>
+
+        </div>
+      </div>
+    </section> -->
+
+    <!-- // new client  -->
+    <section class="client-section">
+      <div class="container">
+        <div class="row align-items-center">
+          <!-- Left Text -->
+          <div class="col-md-3 mb-4 mb-md-0">
+            <div class="trusted-text">
+              Trusted by our<br />
+              customers & partners
+            </div>
+          </div>
+
+          <!-- Vertical line between text and logos -->
+          <!-- <div class="col-md-1 d-none d-md-flex justify-content-center">
+            <div class="vertical-line"></div>
+          </div> -->
+
+          <!-- Logos Grid -->
+          <div class="col-md-8">
+            <!-- 1st Row -->
+            <div class="row text-center">
+              <div class="col-6 col-sm-3">
+                <img
+                  src="images/client1.png"
+                  alt="Gem"
+                  class="img-fluid client-logo"
+                />
+              </div>
+              <div class="col-6 col-sm-3">
+                <img
+                  src="images/client3.png"
+                  alt="Hopin"
+                  class="img-fluid client-logo"
+                />
+              </div>
+              <div class="col-6 col-sm-3">
+                <img
+                  src="images/client2.png"
+                  alt="Outline"
+                  class="img-fluid client-logo"
+                />
+              </div>
+              <div class="col-6 col-sm-3">
+                <img
+                  src="images/client4.png"
+                  alt="HelpScout"
+                  class="img-fluid client-logo"
+                />
+              </div>
+            </div>
+
+            <!-- Horizontal line -->
+            <hr class="client-hr" />
+
+            <!-- 2nd Row -->
+            <div class="row text-center">
+              <div class="col-6 col-sm-3">
+                <img
+                  src="images/client1.png"
+                  alt="Gem"
+                  class="img-fluid client-logo"
+                />
+              </div>
+              <div class="col-6 col-sm-3">
+                <img
+                  src="images/client3.png"
+                  alt="Hopin"
+                  class="img-fluid client-logo"
+                />
+              </div>
+              <div class="col-6 col-sm-3">
+                <img
+                  src="images/client2.png"
+                  alt="Outline"
+                  class="img-fluid client-logo"
+                />
+              </div>
+              <div class="col-6 col-sm-3">
+                <img
+                  src="images/client4.png"
+                  alt="HelpScout"
+                  class="img-fluid client-logo"
+                />
+              </div>
+            </div>
+
+            <!-- Horizontal line -->
+            <!-- <hr class="client-hr" /> -->
+
+            <!-- 3rd Row -->
+            <!-- <div class="row text-center">
+              <div class="col-6 col-sm-3">
+                <img
+                  src="images/client1.png"
+                  alt="Gem"
+                  class="img-fluid client-logo"
+                />
+              </div>
+              <div class="col-6 col-sm-3">
+                <img
+                  src="images/client3.png"
+                  alt="Hopin"
+                  class="img-fluid client-logo"
+                />
+              </div>
+              <div class="col-6 col-sm-3">
+                <img
+                  src="images/client2.png"
+                  alt="Outline"
+                  class="img-fluid client-logo"
+                />
+              </div>
+              <div class="col-6 col-sm-3">
+                <img
+                  src="images/client4.png"
+                  alt="HelpScout"
+                  class="img-fluid client-logo"
+                />
+              </div>
+            </div> -->
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- testimonials -->
+
+    <div class="testimonials-container">
+      <!-- Header Section -->
+      <div class="test-header-section">
+        <div class="test-badge">
+          <i class="fas fa-users"></i>
+          <span>Customer Stories</span>
+        </div>
+        <h1 class="main-title">
+          Hear what our
+          <span class="test-gradient-text">customers</span>
+          are saying
+        </h1>
+        <p class="subtitle">
+          Discover how Cityhangaround is transforming businesses worldwide
+        </p>
+      </div>
+
+      <!-- Controls -->
+
+      <!-- Testimonials Carousel -->
+      <div class="test-container">
+        <div class="test-track" id="testTrack">
+          <div class="testimonial-card" data-video="1jveHrbRzmU">
+            <div class="video-container">
+              <div class="video-placeholder">
+                <img
+                  src="https://img.youtube.com/vi/1jveHrbRzmU/maxresdefault.jpg"
+                  alt="Video thumbnail"
+                />
+                <div class="play-overlay">
+                  <div class="play-button">
+                    <i class="fas fa-play"></i>
+                  </div>
+                </div>
+              </div>
+              <div class="video-frame" style="display: none">
+                <iframe src="" frameborder="0" allowfullscreen></iframe>
+              </div>
+            </div>
+            <div class="card-content">
+              <div class="rating">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+              </div>
+              <h4>Amazing Experience</h4>
+              <p>
+                This platform completely transformed how we work and
+                collaborate...
+              </p>
+              <div class="author">
+                <div class="avatar">HM</div>
+                <div class="author-info">
+                  <span class="name">Heena Mongia</span>
+                  <span class="title">Verified Customer</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="testimonial-card" data-video="ZTZUiUshPj0">
+            <div class="video-container">
+              <div class="video-placeholder">
+                <img
+                  src="https://img.youtube.com/vi/ZTZUiUshPj0/maxresdefault.jpg"
+                  alt="Video thumbnail"
+                />
+                <div class="play-overlay">
+                  <div class="play-button">
+                    <i class="fas fa-play"></i>
+                  </div>
+                </div>
+              </div>
+              <div class="video-frame" style="display: none">
+                <iframe src="" frameborder="0" allowfullscreen></iframe>
+              </div>
+            </div>
+            <div class="card-content">
+              <div class="rating">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+              </div>
+              <h4>Game Changer</h4>
+              <p>
+                I've never seen anything like this before. Absolutely
+                revolutionary...
+              </p>
+              <div class="author">
+                <div class="avatar">PM</div>
+                <div class="author-info">
+                  <span class="name">Peehu Mongia</span>
+                  <span class="title">Verified Customer</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="testimonial-card" data-video="KavGoogIDng">
+            <div class="video-container">
+              <div class="video-placeholder">
+                <img
+                  src="https://img.youtube.com/vi/KavGoogIDng/maxresdefault.jpg"
+                  alt="Video thumbnail"
+                />
+                <div class="play-overlay">
+                  <div class="play-button">
+                    <i class="fas fa-play"></i>
+                  </div>
+                </div>
+              </div>
+              <div class="video-frame" style="display: none">
+                <iframe src="" frameborder="0" allowfullscreen></iframe>
+              </div>
+            </div>
+            <div class="card-content">
+              <div class="rating">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+              </div>
+              <h4>Incredible Results</h4>
+              <p>
+                The results speak for themselves. Our productivity increased by
+                300%...
+              </p>
+              <div class="author">
+                <div class="avatar">VT</div>
+                <div class="author-info">
+                  <span class="name">Vishal Tiwari</span>
+                  <span class="title">Verified Customer</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="testimonial-card" data-video="KSFi9LAjyAU">
+            <div class="video-container">
+              <div class="video-placeholder">
+                <img
+                  src="https://img.youtube.com/vi/KSFi9LAjyAU/maxresdefault.jpg"
+                  alt="Video thumbnail"
+                />
+                <div class="play-overlay">
+                  <div class="play-button">
+                    <i class="fas fa-play"></i>
+                  </div>
+                </div>
+              </div>
+              <div class="video-frame" style="display: none">
+                <iframe src="" frameborder="0" allowfullscreen></iframe>
+              </div>
+            </div>
+            <div class="card-content">
+              <div class="rating">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+              </div>
+              <h4>Perfect Solution</h4>
+              <p>
+                Exactly what we were looking for. Simple, powerful, and
+                effective...
+              </p>
+              <div class="author">
+                <div class="avatar">CB</div>
+                <div class="author-info">
+                  <span class="name">Chandni Bhatia</span>
+                  <span class="title">Verified Customer</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Progress Indicators -->
+      <div class="progress-indicators" id="progressIndicators">
+        <div class="indicator active"></div>
+        <div class="indicator"></div>
+        <div class="indicator"></div>
+        <div class="indicator"></div>
+      </div>
+    </div>
+
+<!-- FAQ section  -->
+    <section id="faq" class="faq">
+      <h2>Frequently Asked Questions</h2>
+      <ul>
+        <li>
+          <a
+            ><span>How cityhangaround help us?</span>
+            <span class="icon">+</span></a
+          >
+          <p>
+            Cityhangaround promotes your business and product in your local area
+            that helps you to get new customers and sales. It provides local
+            online marketing solutions for your business at very low cost.
+          </p>
+        </li>
+        <li>
+          <a
+            ><span>Which type of business can be listed here?</span>
+            <span class="icon">+</span></a
+          >
+          <p>
+            There are many types of businesses that can be listed here. Some
+            examples include: Small businesses, Local businesses, Service
+            businesses, Retail businesses, Online businesses, Wholesale
+            businesses, Import/export businesses, Franchise businesses.
+          </p>
+        </li>
+        <li>
+          <a
+            ><span>What cost do I have to pay for a listing?</span>
+            <span class="icon">+</span></a
+          >
+          <p>
+            There is no cost for listing your business and adding products and
+            services. But for promotion of your business we have affordable paid
+            plans according to the requirements of your business. You can select
+            any paid plan according to your budget and enjoy the growth of your
+            business.
+          </p>
+        </li>
+        <li>
+          <a
+            ><span>Can we add our products?</span>
+            <span class="icon">+</span></a
+          >
+          <p>
+            Yes, you can login via your registered email id and add products,
+            deals, and offers.
+          </p>
+        </li>
+        <li>
+          <a
+            ><span>Can I see how many people viewed my listing?</span>
+            <span class="icon">+</span></a
+          >
+          <p>
+            Yes! Go to your listing and you can see the total visitors and the
+            daily visitors of your listing.
+          </p>
+        </li>
+        <li>
+          <a
+            ><span>What will be the benefits of doing listing?</span>
+            <span class="icon">+</span></a
+          >
+          <p>
+            Your business gets more visibility in your area and you may get more
+            customers with the help of this free listing.
+          </p>
+        </li>
+        <li>
+          <a
+            ><span>What details do I have to put in the listing?</span>
+            <span class="icon">+</span></a
+          >
+          <p>
+            You have to add the name of your business, contact details,
+            address/location, and products/services/deals/offers you are
+            providing.
+          </p>
+        </li>
+      </ul>
+    </section>
+    <!--footer-->
+
+    <footer class="footer">
+      <!-- About -->
+      <div class="footer-column">
+        <img src="./images/logoheader.png" alt="eKal Academy Logo" />
+        <h3>About CityHangaround</h3>
+        <p>
+          Discover What’s Hot Around You – Events, Shops, Creators & More on
+          CityHangaround!
+        </p>
+      </div>
+
+      <!-- Platform -->
+      <div class="footer-column" >
+        <h3>Platform</h3>
+        <ul>
+          <li><a href="#">Trending Events</a></li>
+          <li><a href="#">Trending Business</a></li>
+          <li><a href="#">Trending Deals</a></li>
+          <li><a href="#">Trending Blogs</a></li>
+          <li><a href="#">Trending Videos</a></li>
+          <li><a href="#">Trending Discussions</a></li>
+        </ul>
+      </div>
+
+      <!-- Company -->
+      <div class="footer-column">
+        <h3>Company</h3>
+        <ul>
+          <li><a href="#">Contact us</a></li>
+          <li><a href="#">Partnership</a></li>
+          <li><a href="#">Advertisement</a></li>
+          <li><a href="#">Influencers</a></li>
+          <li><a href="#">Add Business</a></li>
+        </ul>
+      </div>
+
+      <!-- Reach Us -->
+      <div class="footer-column">
+        <h3>Reach Us</h3>
+        <form class="contact-form" onsubmit="return validateCaptcha()">
+          <input type="text" placeholder="Name" required />
+          <input type="tel" placeholder="Phone no." required />
+          <input type="email" placeholder="Email id" required />
+          <input type="text" placeholder="City" required />
+          <textarea placeholder="Query" rows="3" required></textarea>
+          <input
+            type="text"
+            id="captchaInput"
+            placeholder="Enter Captcha"
+            required
+          />
+          <div>
+            <img
+              src="./images/captacha.png"
+              alt="Captcha"
+              style="margin-bottom: 10px"
+            />
+          </div>
+          <button type="submit">Submit</button>
+        </form>
+      </div>
+    </footer>
+    
+
+    <!-- Footer Bottom -->
+    <!-- ✅ Footer Section -->
+    <div class="footer-bottom">
+      <p>Powered by Cityhangaround</p>
+
+      <div class="footer-links">
+        <a
+          href="https://www.cityhangaround.com/pages/custom/about-us"
+          target="_blank"
+          rel="noopener noreferrer"
+          style="display: inline-block"
+          >About Us</a
+        >
+        <a
+          href="https://www.cityhangaround.com/pages/custom/disclaimer"
+          target="_blank"
+          rel="noopener noreferrer"
+          style="display: inline-block"
+          >Disclaimer</a
+        >
+        <a
+          href="https://www.cityhangaround.com/pages/custom/privacy-policy"
+          target="_blank"
+          rel="noopener noreferrer"
+          style="display: inline-block"
+          >Privacy Policy</a
+        >
+        <a
+          href="https://www.cityhangaround.com/pages/custom/contact-us"
+          target="_blank"
+          rel="noopener noreferrer"
+          style="display: inline-block"
+          >Contact Us</a
+        >
+        <a
+          href="https://www.cityhangaround.com/pages/custom/influencer"
+          target="_blank"
+          rel="noopener noreferrer"
+          style="display: inline-block"
+          >Influencers</a
+        >
+        <a
+          href="https://www.cityhangaround.com/pages/custom/advertise"
+          target="_blank"
+          rel="noopener noreferrer"
+          style="display: inline-block"
+          >Advertise</a
+        >
+        <a
+          href="https://www.cityhangaround.com/pages/custom/terms-and-conditions"
+          target="_blank"
+          rel="noopener noreferrer"
+          style="display: inline-block"
+          >Terms & Conditions</a
+        >
+      </div>
+
+      <div class="social-icons">
+        <a href="https://www.facebook.com/Cityhangaround/" target="_blank">
+          <i class="fab fa-facebook-f"></i>
+        </a>
+        <a
+          href="https://in.linkedin.com/company/cityhangaround"
+          target="_blank"
+        >
+          <i class="fab fa-linkedin-in"></i>
+        </a>
+        <a href="https://www.instagram.com/cityhangaround/" target="_blank">
+          <i class="fab fa-instagram"></i>
+        </a>
+        <a href="https://www.youtube.com/c/Cityhangaround" target="_blank">
+          <i class="fab fa-youtube"></i>
+        </a>
+      </div>
+    </div>
+
+    <script src="./js/script.js"></script>
     <script>
+      const counters = document.querySelectorAll(".count");
+      let hasAnimated = false;
+
+      function animateCounter(counter, target, duration = 2000) {
+        let startTimestamp = null;
+
+        const step = (timestamp) => {
+          if (!startTimestamp) startTimestamp = timestamp;
+          const progress = timestamp - startTimestamp;
+          const value = Math.min(
+            Math.floor((progress / duration) * target),
+            target
+          );
+          counter.innerText = value.toLocaleString();
+          if (value < target) {
+            window.requestAnimationFrame(step);
+          }
+        };
+
+        window.requestAnimationFrame(step);
+      }
+
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting && !hasAnimated) {
+              counters.forEach((counter, index) => {
+                const target = parseInt(counter.getAttribute("data-target"));
+                setTimeout(() => {
+                  animateCounter(counter, target);
+                }, index * 200);
+              });
+              hasAnimated = true;
+            }
+          });
+        },
+        { threshold: 0.3 }
+      );
+
+      observer.observe(document.getElementById("statsSection"));
+
+      // Add smooth scrolling with mouse wheel
+      const statsContainer = document.querySelector(".stats-container");
+      statsContainer.addEventListener("wheel", (e) => {
+        if (e.deltaY !== 0) {
+          e.preventDefault();
+          statsContainer.scrollLeft += e.deltaY;
+        }
+      });
+
+      // Add touch scrolling momentum for mobile
+      let isScrolling = false;
+      let startX = 0;
+      let scrollLeft = 0;
+
+      statsContainer.addEventListener("touchstart", (e) => {
+        isScrolling = true;
+        startX = e.touches[0].pageX - statsContainer.offsetLeft;
+        scrollLeft = statsContainer.scrollLeft;
+      });
+
+      statsContainer.addEventListener("touchmove", (e) => {
+        if (!isScrolling) return;
+
+        const x = e.touches[0].pageX - statsContainer.offsetLeft;
+        const walk = (x - startX) * 2;
+        statsContainer.scrollLeft = scrollLeft - walk;
+      });
+
+      statsContainer.addEventListener("touchend", () => {
+        isScrolling = false;
+      });
+    </script>
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const wrapper = document.querySelector(".cards-wrapper");
+        const cards = document.querySelectorAll(".card");
+        const prevBtn = document.querySelector(".carousel-btn.prev");
+        const nextBtn = document.querySelector(".carousel-btn.next");
+        const pagination = document.querySelector(".carousel-pagination");
+
+        if (!wrapper || cards.length === 0) return;
+
+        let currentPage = 0;
+
+        // Determine scroll per page based on screen width
+        function getPageWidth() {
+          if (window.innerWidth < 768) {
+            // Mobile: scroll by 1 card
+            return cards[0].offsetWidth + 20; // card + margin
+          } else {
+            // Desktop: scroll by visible area
+            return wrapper.clientWidth;
+          }
+        }
+
+        function getTotalPages() {
+          return Math.ceil(wrapper.scrollWidth / getPageWidth());
+        }
+
+        // Render dots
+        function renderDots() {
+          pagination.innerHTML = "";
+          const totalPages = getTotalPages();
+          for (let i = 0; i < totalPages; i++) {
+            const dot = document.createElement("span");
+            dot.classList.add("dot");
+            if (i === 0) dot.classList.add("active");
+            dot.addEventListener("click", () => goToPage(i));
+            pagination.appendChild(dot);
+          }
+        }
+
+        function updateButtons() {
+          const totalPages = getTotalPages();
+          prevBtn.style.display = currentPage === 0 ? "none" : "block";
+          nextBtn.style.display =
+            currentPage >= totalPages - 1 ? "none" : "block";
+
+          const dots = pagination.querySelectorAll(".dot");
+          dots.forEach((dot, i) =>
+            dot.classList.toggle("active", i === currentPage)
+          );
+        }
+
+        function goToPage(page) {
+          const totalPages = getTotalPages();
+          currentPage = Math.max(0, Math.min(page, totalPages - 1));
+          wrapper.scrollTo({
+            left: getPageWidth() * currentPage,
+            behavior: "smooth",
+          });
+          updateButtons();
+        }
+
+        prevBtn.addEventListener("click", () => goToPage(currentPage - 1));
+        nextBtn.addEventListener("click", () => goToPage(currentPage + 1));
+
+        window.addEventListener("resize", () => {
+          renderDots();
+          goToPage(currentPage); // keep current page in view
+        });
+
+        // Initialize
+        renderDots();
+        updateButtons();
+      });
+    </script>
+     <script>
       // DOM Content Loaded
       document.addEventListener("DOMContentLoaded", function () {
         // Initialize all animations and interactions
@@ -428,1066 +1990,25 @@
         }
       });
     </script>
+    <!-- faq -->
+         <script>
+      const faqItems = document.querySelectorAll(".faq li");
 
-    <!-- popular cities -->
-    <section class="trending-section">
-      <div class="city-container">
-        <h2 class="city-title">
-          <span class="icon">🔥</span> Popular Destinations
-        </h2>
-        <h1>TRENDING CITIES</h1>
-        <p>Discover what's happening in these amazing destinations</p>
+      faqItems.forEach((item) => {
+        const link = item.querySelector("a");
+        link.addEventListener("click", () => {
+          const isActive = item.classList.contains("active");
 
-        <div class="carousel">
-          <!-- Prev Button -->
-          <button class="carousel-btn prev" id="cityPrev">&#10094;</button>
-
-          <!-- Cards Wrapper -->
-          <div class="cards-wrapper" id="cityWrapper">
-            <div class="card">
-              <div class="card-image">
-                <img src="./images/banglore.jpg" alt="Bangalore" />
-                <span class="badge trending">Trending</span>
-                <span class="badge rating">4.8⭐</span>
-              </div>
-              <div class="card-content">
-                <h3>Bangalore</h3>
-                <p>8,336,817 people</p>
-                <p>
-                  <span class="activities">1247 activities</span>
-                  <span class="growth">+9% this month</span>
-                </p>
-                <button>Explore Bangalore</button>
-              </div>
-            </div>
-
-            <div class="card">
-              <div class="card-image">
-                <img src="./images/delhi.jpg" alt="Delhi" />
-                <span class="badge trending">Trending</span>
-                <span class="badge rating">4.8⭐</span>
-              </div>
-              <div class="card-content">
-                <h3>Delhi</h3>
-                <p>9,540,576 people</p>
-                <p>
-                  <span class="activities">892 activities</span>
-                  <span class="growth">+14% this month</span>
-                </p>
-                <button>Explore Delhi</button>
-              </div>
-            </div>
-
-            <div class="card">
-              <div class="card-image">
-                <img src="./images/mumbai.jpg" alt="Mumbai" />
-                <span class="badge trending">Trending</span>
-                <span class="badge rating">4.8⭐</span>
-              </div>
-              <div class="card-content">
-                <h3>Mumbai</h3>
-                <p>2,161,000 people</p>
-                <p>
-                  <span class="activities">634 activities</span>
-                  <span class="growth">+5% this month</span>
-                </p>
-                <button>Explore Mumbai</button>
-              </div>
-            </div>
-
-            <div class="card">
-              <div class="card-image">
-                <img src="./images/kolkata.avif" alt="Kolkata" />
-                <span class="badge trending">Trending</span>
-                <span class="badge rating">4.8⭐</span>
-              </div>
-              <div class="card-content">
-                <h3>Kolkata</h3>
-                <p>13,960,000 people</p>
-                <p>
-                  <span class="activities">- activities</span>
-                  <span class="growth">--</span>
-                </p>
-                <button>Explore Kolkata</button>
-              </div>
-            </div>
-
-            <div class="card">
-              <div class="card-image">
-                <img src="./images/chennai.avif" alt="Chennai" />
-                <span class="badge trending">Trending</span>
-                <span class="badge rating">4.8⭐</span>
-              </div>
-              <div class="card-content">
-                <h3>Chennai</h3>
-                <p>9,540,576 people</p>
-                <p>
-                  <span class="activities">892 activities</span>
-                  <span class="growth">+14% this month</span>
-                </p>
-                <button>Explore Chennai</button>
-              </div>
-            </div>
-
-            <div class="card">
-              <div class="card-image">
-                <img src="./images/hydrabad.webp" alt="Hyderabad" />
-                <span class="badge trending">Trending</span>
-                <span class="badge rating">4.8⭐</span>
-              </div>
-              <div class="card-content">
-                <h3>Hyderabad</h3>
-                <p>9,540,576 people</p>
-                <p>
-                  <span class="activities">892 activities</span>
-                  <span class="growth">+14% this month</span>
-                </p>
-                <button>Explore Hyderabad</button>
-              </div>
-            </div>
-          </div>
-
-          <!-- Next Button -->
-          <button class="carousel-btn next" id="cityNext">&#10095;</button>
-        </div>
-
-        <!-- Pagination Dots -->
-        <div class="carousel-pagination" id="cityDots"></div>
-      </div>
-    </section>
-    <script>
-      document.addEventListener("DOMContentLoaded", () => {
-        const wrapper = document.querySelector(".cards-wrapper");
-        const cards = document.querySelectorAll(".card");
-        const prevBtn = document.querySelector(".carousel-btn.prev");
-        const nextBtn = document.querySelector(".carousel-btn.next");
-        const pagination = document.querySelector(".carousel-pagination");
-
-        const cardWidth = cards[0].offsetWidth + 20; // card + margin
-        const totalCards = cards.length;
-        const totalPages = Math.ceil(wrapper.scrollWidth / wrapper.clientWidth);
-
-        let currentPage = 0;
-
-        // Create dots (1 dot = 1 page)
-        for (let i = 0; i < totalPages; i++) {
-          const dot = document.createElement("span");
-          dot.classList.add("dot");
-          if (i === 0) dot.classList.add("active");
-          dot.addEventListener("click", () => goToPage(i));
-          pagination.appendChild(dot);
-        }
-
-        const dots = pagination.querySelectorAll(".dot");
-
-        function updateButtons() {
-          prevBtn.style.display = currentPage === 0 ? "none" : "block";
-          nextBtn.style.display =
-            currentPage === totalPages - 1 ? "none" : "block";
-          dots.forEach((dot, i) => {
-            dot.classList.toggle("active", i === currentPage);
+          faqItems.forEach((otherItem) => {
+            otherItem.classList.remove("active");
           });
-        }
 
-        function goToPage(page) {
-          currentPage = Math.max(0, Math.min(page, totalPages - 1));
-          wrapper.scrollTo({
-            left: wrapper.clientWidth * currentPage,
-            behavior: "smooth",
-          });
-          updateButtons();
-        }
-
-        prevBtn.addEventListener("click", () => goToPage(currentPage - 1));
-        nextBtn.addEventListener("click", () => goToPage(currentPage + 1));
-
-        updateButtons();
-      });
-    </script>
-    <!-- popular categories -->
-    <h2 class="category-title">POPULAR CATEGORIES</h2>
-
-    <div class="category-wrapper">
-      <!-- Scroll Buttons -->
-      <div class="scroll-btn scroll-left" id="scrollLeft" title="Scroll Left">
-        <i class="fas fa-chevron-left"></i>
-      </div>
-
-      <div class="category-container" id="categoryContainer">
-        <!-- Food -->
-        <div class="category-card">
-          <div class="icon-box red"><i class="fas fa-hamburger"></i></div>
-          <h3>Food</h3>
-          <p>Restaurants, cafes, delivery</p>
-          <div class="available">1320 <span>available</span></div>
-          <div class="browse-btn">Browse Food</div>
-        </div>
-
-        <!-- Health -->
-        <div class="category-card">
-          <div class="icon-box green"><i class="fas fa-heartbeat"></i></div>
-          <h3>Health</h3>
-          <p>Clinics, gyms, pharmacies</p>
-          <div class="available">784 <span>available</span></div>
-          <div class="browse-btn">Browse Health</div>
-        </div>
-
-        <!-- Events -->
-        <div class="category-card">
-          <div class="icon-box blue"><i class="fas fa-calendar-alt"></i></div>
-          <h3>Events</h3>
-          <p>Meetups, festivals, shows</p>
-          <div class="available">1096 <span>available</span></div>
-          <div class="browse-btn">Browse Events</div>
-        </div>
-
-        <!-- Shopping -->
-        <div class="category-card">
-          <div class="icon-box purple"><i class="fas fa-shopping-bag"></i></div>
-          <h3>Shopping</h3>
-          <p>Stores, malls, online shops</p>
-          <div class="available">678 <span>available</span></div>
-          <div class="browse-btn">Browse Shopping</div>
-        </div>
-
-        <!-- Home Repair -->
-        <div class="category-card">
-          <div class="icon-box orange"><i class="fas fa-tools"></i></div>
-          <h3>Home Repair</h3>
-          <p>Plumbing, electrical, carpentry</p>
-          <div class="available">412 <span>available</span></div>
-          <div class="browse-btn">Browse Services</div>
-        </div>
-
-        <!-- Education -->
-        <div class="category-card">
-          <div class="icon-box yellow">
-            <i class="fas fa-graduation-cap"></i>
-          </div>
-          <h3>Education</h3>
-          <p>Schools, coaching, colleges</p>
-          <div class="available">935 <span>available</span></div>
-          <div class="browse-btn">Browse Education</div>
-        </div>
-      </div>
-
-      <div
-        class="scroll-btn scroll-right"
-        id="scrollRight"
-        title="Scroll Right"
-      >
-        <i class="fas fa-chevron-right"></i>
-      </div>
-
-      <div class="category-dots" id="categoryDots"></div>
-    </div>
-
-    <script>
-      const container = document.getElementById("categoryContainer");
-      const btnLeft = document.getElementById("scrollLeft");
-      const btnRight = document.getElementById("scrollRight");
-
-      btnLeft.addEventListener("click", () => {
-        container.scrollBy({ left: -300, behavior: "smooth" });
-      });
-
-      btnRight.addEventListener("click", () => {
-        container.scrollBy({ left: 300, behavior: "smooth" });
-      });
-
-      // Show/hide buttons based on scroll
-      function toggleScrollButtons() {
-        btnLeft.style.display = container.scrollLeft > 0 ? "flex" : "none";
-        btnRight.style.display =
-          container.scrollLeft + container.clientWidth < container.scrollWidth
-            ? "flex"
-            : "none";
-      }
-
-      container.addEventListener("scroll", toggleScrollButtons);
-      window.addEventListener("resize", toggleScrollButtons);
-
-      // Initialize
-      toggleScrollButtons();
-    </script>
-    <!-- discovery section -->
-
-    <section class="discovery-section">
-      <h2>GET DISCOVERED BY <span>local customers</span></h2>
-      <p>
-        Join 3,200+ businesses that are already connecting with their community.
-        From restaurants to fitness studios, we help you reach the right
-        audience.
-      </p>
-
-      <div class="scroll-wrapper">
-        <div class="info-card">
-          <div class="icon-box"><i class="fas fa-users"></i></div>
-          <h3>Reach 89K+ Local Customers</h3>
-          <p>
-            Connect with thousands of potential customers actively searching in
-            your area
-          </p>
-          <div class="stat-box">
-            <strong>3x more visibility</strong><br /><span
-              >Average improvement</span
-            >
-          </div>
-        </div>
-
-        <div class="info-card">
-          <div class="icon-box"><i class="fas fa-chart-line"></i></div>
-          <h3>Boost Your Revenue</h3>
-          <p>
-            Businesses see an average 40% increase in bookings within 3 months
-          </p>
-          <div class="stat-box">
-            <strong>40% revenue boost</strong><br /><span
-              >Average improvement</span
-            >
-          </div>
-        </div>
-
-        <div class="info-card">
-          <div class="icon-box"><i class="fas fa-award"></i></div>
-          <h3>Build Your Reputation</h3>
-          <p>
-            Collect verified reviews and showcase your business to the community
-          </p>
-          <div class="stat-box">
-            <strong>4.8★ avg rating</strong><br /><span
-              >Average improvement</span
-            >
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- reach customer -->
-
-    <!-- Hero -->
-    <section class="hero">
-      <div class="background-animation">
-        <div class="blob blob-1"></div>
-        <div class="blob blob-2"></div>
-        <div class="blob blob-3"></div>
-        <div class="blob blob-4"></div>
-      </div>
-      <div class="reach-cus">
-        <div class="hero-badge">
-          <span>⭐ Trusted by 10,000+ businesses</span>
-        </div>
-        <h1 class="hero-title">
-          Reach Local Customers &
-          <span class="gradient-text">Grow Your Business</span>
-        </h1>
-        <p class="hero-description">
-          Connect with your community, showcase your offerings, and build
-          lasting relationships with local customers.
-        </p>
-        <div class="hero-buttons">
-          <button class="primary-button">Register Now - It's Free!</button>
-          <button class="secondary-button">Watch Demo</button>
-        </div>
-      </div>
-    </section>
-
-    <!-- Features -->
-    <section id="features" class="features">
-      <div class="features-wrapper">
-        <button class="scroll-btn-fe left-btn-fe">
-          <i class="fas fa-chevron-left"></i>
-        </button>
-        <div class="features-scroll-container">
-          <div class="features-container">
-            <div class="feature-card">
-              <i class="fas fa-building feature-icon"></i>
-              <h3 class="feature-title">Add Business Listing</h3>
-              <p class="feature-description">
-                Showcase your business details, services, and contact info.
-              </p>
-              <button class="feature-button">Get Started →</button>
-            </div>
-            <div class="feature-card">
-              <i class="fas fa-tags feature-icon"></i>
-              <h3 class="feature-title">Add Deals</h3>
-              <p class="feature-description">
-                Attract new customers with offers, discounts, and promotions.
-              </p>
-              <button class="feature-button">Create Deal →</button>
-            </div>
-            <div class="feature-card">
-              <i class="fas fa-calendar-alt feature-icon"></i>
-              <h3 class="feature-title">Add Events</h3>
-              <p class="feature-description">
-                Promote community events, workshops, and networking
-                opportunities.
-              </p>
-              <button class="feature-button">Plan Event →</button>
-            </div>
-            <div class="feature-card">
-              <i class="fas fa-user-friends feature-icon"></i>
-              <h3 class="feature-title">Work with Influencers</h3>
-              <p class="feature-description">
-                Connect with local personalities to expand your brand.
-              </p>
-              <button class="feature-button">Find Influencers →</button>
-            </div>
-            <div class="feature-card">
-              <i class="fas fa-blog feature-icon"></i>
-              <h3 class="feature-title">Add Blog</h3>
-              <p class="feature-description">
-                Share industry insights, stories, and updates through blogging.
-              </p>
-              <button class="feature-button">Write Blog →</button>
-            </div>
-
-            <div class="feature-card">
-              <i class="fas fa-users feature-icon"></i>
-              <h3 class="feature-title">Join Community</h3>
-              <p class="feature-description">
-                Engage with like-minded individuals and businesses locally.
-              </p>
-              <button class="feature-button">Join Now →</button>
-            </div>
-
-            <div class="feature-card">
-              <i class="fas fa-video feature-icon"></i>
-              <h3 class="feature-title">Trending Videos</h3>
-              <p class="feature-description">
-                Discover and share popular video content around your niche.
-              </p>
-              <button class="feature-button">Explore Now →</button>
-            </div>
-          </div>
-        </div>
-        <button class="scroll-btn-fe right-btn-fe">
-          <i class="fas fa-chevron-right"></i>
-        </button>
-      </div>
-      <div class="feature-dots" id="featureDots"></div>
-    </section>
-
-    <!-- explore city hangaround -->
-
-    <div class="container-explore">
-      <div class="header-explore">
-        <h2>Explore cityhangaround now</h2>
-      </div>
-
-      <div class="stats-container">
-        <section class="stats-section" id="statsSection">
-          <div class="stat">
-            <div class="icon-explore">📈</div>
-            <h2 class="count" data-target="100000">0</h2>
-            <p>Business Listed</p>
-          </div>
-          <div class="stat">
-            <div class="icon-explore">👥</div>
-            <h2 class="count" data-target="2000">0</h2>
-            <p>Happy Clients</p>
-          </div>
-          <div class="stat">
-            <div class="icon-explore">🎯</div>
-            <h2 class="count" data-target="1000">0</h2>
-            <p>Campaign Complete</p>
-          </div>
-          <div class="stat">
-            <div class="icon-explore">🏆</div>
-            <h2 class="count" data-target="15">0</h2>
-            <p>Years Experience</p>
-          </div>
-        </section>
-      </div>
-    </div>
-
-    <script>
-      const counters = document.querySelectorAll(".count");
-      let hasAnimated = false;
-
-      function animateCounter(counter, target, duration = 2000) {
-        let startTimestamp = null;
-
-        const step = (timestamp) => {
-          if (!startTimestamp) startTimestamp = timestamp;
-          const progress = timestamp - startTimestamp;
-          const value = Math.min(
-            Math.floor((progress / duration) * target),
-            target
-          );
-          counter.innerText = value.toLocaleString();
-          if (value < target) {
-            window.requestAnimationFrame(step);
+          if (!isActive) {
+            item.classList.add("active");
           }
-        };
-
-        window.requestAnimationFrame(step);
-      }
-
-      const observer = new IntersectionObserver(
-        (entries) => {
-          entries.forEach((entry) => {
-            if (entry.isIntersecting && !hasAnimated) {
-              counters.forEach((counter, index) => {
-                const target = parseInt(counter.getAttribute("data-target"));
-                setTimeout(() => {
-                  animateCounter(counter, target);
-                }, index * 200);
-              });
-              hasAnimated = true;
-            }
-          });
-        },
-        { threshold: 0.3 }
-      );
-
-      observer.observe(document.getElementById("statsSection"));
-
-      // Add smooth scrolling with mouse wheel
-      const statsContainer = document.querySelector(".stats-container");
-      statsContainer.addEventListener("wheel", (e) => {
-        if (e.deltaY !== 0) {
-          e.preventDefault();
-          statsContainer.scrollLeft += e.deltaY;
-        }
-      });
-
-      // Add touch scrolling momentum for mobile
-      let isScrolling = false;
-      let startX = 0;
-      let scrollLeft = 0;
-
-      statsContainer.addEventListener("touchstart", (e) => {
-        isScrolling = true;
-        startX = e.touches[0].pageX - statsContainer.offsetLeft;
-        scrollLeft = statsContainer.scrollLeft;
-      });
-
-      statsContainer.addEventListener("touchmove", (e) => {
-        if (!isScrolling) return;
-
-        const x = e.touches[0].pageX - statsContainer.offsetLeft;
-        const walk = (x - startX) * 2;
-        statsContainer.scrollLeft = scrollLeft - walk;
-      });
-
-      statsContainer.addEventListener("touchend", () => {
-        isScrolling = false;
+        });
       });
     </script>
-
-    <!-- client section -->
-
-    <section class="clients-section">
-      <div class="ci-container">
-        <div class="background-animation">
-          <div class="blob blob-1"></div>
-          <div class="blob blob-2"></div>
-          <div class="blob blob-3"></div>
-          <div class="blob blob-4"></div>
-        </div>
-        <div class="section-header">
-          <span class="client-badge">Trusted Partners</span>
-          <h2>Our <span class="highlight">Clients</span></h2>
-          <p class="subtitle">
-            Companies that trust us to deliver exceptional results
-          </p>
-        </div>
-
-        <div class="client-container">
-          <button class="nav-btn prev-btn" id="prevBtn">
-            <svg
-              width="20"
-              height="20"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2"
-            >
-              <polyline points="15,18 9,12 15,6"></polyline>
-            </svg>
-          </button>
-
-          <div class="client-wrapper">
-            <div class="client-track" id="clientTrack">
-              <div class="client-card">
-                <div class="client-card-inner">
-                  <div class="client-logo">
-                    <img src="images/client1.png" alt="TechCorp" />
-                  </div>
-                </div>
-              </div>
-
-              <div class="client-card">
-                <div class="client-card-inner">
-                  <div class="client-logo">
-                    <img src="images/client2.png" alt="InnovateLab" />
-                  </div>
-                </div>
-              </div>
-
-              <div class="client-card">
-                <div class="client-card-inner">
-                  <div class="client-logo">
-                    <img src="images/client3.png" alt="QuantumSoft" />
-                  </div>
-                </div>
-              </div>
-
-              <div class="client-card">
-                <div class="client-card-inner">
-                  <div class="client-logo">
-                    <img src="images/client4.png" alt="EcoSolutions" />
-                  </div>
-                </div>
-              </div>
-
-              <div class="client-card">
-                <div class="client-card-inner">
-                  <div class="client-logo">
-                    <img src="images/client1.png" alt="DataFlow" />
-                  </div>
-                </div>
-              </div>
-
-              <div class="client-card">
-                <div class="client-card-inner">
-                  <div class="client-logo">
-                    <img src="images/client2.png" alt="CloudNine" />
-                  </div>
-                </div>
-              </div>
-
-              <div class="client-card">
-                <div class="client-card-inner">
-                  <div class="client-logo">
-                    <img src="images/client3.png" alt="FinanceHub" />
-                  </div>
-                </div>
-              </div>
-
-              <div class="client-card">
-                <div class="client-card-inner">
-                  <div class="client-logo">
-                    <img src="images/client4.png" alt="HealthTech" />
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <button class="nav-btn next-btn" id="nextBtn">
-            <svg
-              width="20"
-              height="20"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2"
-            >
-              <polyline points="9,18 15,12 9,6"></polyline>
-            </svg>
-          </button>
-        </div>
-
-        <div class="pagination" id="pagination"></div>
-
-        <div class="client-controls" style="display: none">
-          <button class="control-btn" id="playPauseBtn">
-            <svg
-              class="play-icon"
-              width="16"
-              height="16"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2"
-            >
-              <polygon points="5,3 19,12 5,21"></polygon>
-            </svg>
-            <svg
-              class="pause-icon hidden"
-              width="16"
-              height="16"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2"
-            >
-              <rect x="6" y="4" width="4" height="16"></rect>
-              <rect x="14" y="4" width="4" height="16"></rect>
-            </svg>
-            <span id="playPauseText">Pause</span>
-          </button>
-        </div>
-      </div>
-    </section>
-
-    <!-- testimonials -->
-
-    <div class="testimonials-container">
-      <!-- Header Section -->
-      <div class="test-header-section">
-        <div class="test-badge">
-          <i class="fas fa-users"></i>
-          <span>Customer Stories</span>
-        </div>
-        <h1 class="main-title">
-          Hear what our
-          <span class="test-gradient-text">customers</span>
-          are saying
-        </h1>
-        <p class="subtitle">
-          Discover how Cityhangaround is transforming businesses worldwide
-        </p>
-      </div>
-
-      <!-- Controls -->
-      <div class="controls-section">
-        <div class="left-controls">
-          <h3>Video Testimonials</h3>
-          <div class="rating-display">
-            <div class="stars">
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-            </div>
-            <span>4.9/5 from 127 reviews</span>
-          </div>
-        </div>
-        <div class="right-controls">
-          <button class="auto-play-btn" id="autoPlayBtn">
-            <i class="fas fa-pause"></i>
-            <span>Auto Play</span>
-          </button>
-          <div class="nav-buttons">
-            <button class="nav-btn" id="prevBtn">
-              <i class="fas fa-chevron-left"></i>
-            </button>
-            <button class="nav-btn" id="nextBtn">
-              <i class="fas fa-chevron-right"></i>
-            </button>
-          </div>
-        </div>
-      </div>
-
-      <!-- Testimonials Carousel -->
-      <div class="test-container">
-        <div class="test-track" id="testTrack">
-          <div class="testimonial-card" data-video="1jveHrbRzmU">
-            <div class="video-container">
-              <div class="video-placeholder">
-                <img
-                  src="https://img.youtube.com/vi/1jveHrbRzmU/maxresdefault.jpg"
-                  alt="Video thumbnail"
-                />
-                <div class="play-overlay">
-                  <div class="play-button">
-                    <i class="fas fa-play"></i>
-                  </div>
-                </div>
-              </div>
-              <div class="video-frame" style="display: none">
-                <iframe src="" frameborder="0" allowfullscreen></iframe>
-              </div>
-            </div>
-            <div class="card-content">
-              <div class="rating">
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-              </div>
-              <h4>Amazing Experience</h4>
-              <p>
-                This platform completely transformed how we work and
-                collaborate...
-              </p>
-              <div class="author">
-                <div class="avatar">HM</div>
-                <div class="author-info">
-                  <span class="name">Heena Mongia</span>
-                  <span class="title">Verified Customer</span>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="testimonial-card" data-video="ZTZUiUshPj0">
-            <div class="video-container">
-              <div class="video-placeholder">
-                <img
-                  src="https://img.youtube.com/vi/ZTZUiUshPj0/maxresdefault.jpg"
-                  alt="Video thumbnail"
-                />
-                <div class="play-overlay">
-                  <div class="play-button">
-                    <i class="fas fa-play"></i>
-                  </div>
-                </div>
-              </div>
-              <div class="video-frame" style="display: none">
-                <iframe src="" frameborder="0" allowfullscreen></iframe>
-              </div>
-            </div>
-            <div class="card-content">
-              <div class="rating">
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-              </div>
-              <h4>Game Changer</h4>
-              <p>
-                I've never seen anything like this before. Absolutely
-                revolutionary...
-              </p>
-              <div class="author">
-                <div class="avatar">PM</div>
-                <div class="author-info">
-                  <span class="name">Peehu Mongia</span>
-                  <span class="title">Verified Customer</span>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="testimonial-card" data-video="KavGoogIDng">
-            <div class="video-container">
-              <div class="video-placeholder">
-                <img
-                  src="https://img.youtube.com/vi/KavGoogIDng/maxresdefault.jpg"
-                  alt="Video thumbnail"
-                />
-                <div class="play-overlay">
-                  <div class="play-button">
-                    <i class="fas fa-play"></i>
-                  </div>
-                </div>
-              </div>
-              <div class="video-frame" style="display: none">
-                <iframe src="" frameborder="0" allowfullscreen></iframe>
-              </div>
-            </div>
-            <div class="card-content">
-              <div class="rating">
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-              </div>
-              <h4>Incredible Results</h4>
-              <p>
-                The results speak for themselves. Our productivity increased by
-                300%...
-              </p>
-              <div class="author">
-                <div class="avatar">VT</div>
-                <div class="author-info">
-                  <span class="name">Vishal Tiwari</span>
-                  <span class="title">Verified Customer</span>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="testimonial-card" data-video="KSFi9LAjyAU">
-            <div class="video-container">
-              <div class="video-placeholder">
-                <img
-                  src="https://img.youtube.com/vi/KSFi9LAjyAU/maxresdefault.jpg"
-                  alt="Video thumbnail"
-                />
-                <div class="play-overlay">
-                  <div class="play-button">
-                    <i class="fas fa-play"></i>
-                  </div>
-                </div>
-              </div>
-              <div class="video-frame" style="display: none">
-                <iframe src="" frameborder="0" allowfullscreen></iframe>
-              </div>
-            </div>
-            <div class="card-content">
-              <div class="rating">
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-              </div>
-              <h4>Perfect Solution</h4>
-              <p>
-                Exactly what we were looking for. Simple, powerful, and
-                effective...
-              </p>
-              <div class="author">
-                <div class="avatar">CB</div>
-                <div class="author-info">
-                  <span class="name">Chandni Bhatia</span>
-                  <span class="title">Verified Customer</span>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Progress Indicators -->
-      <div class="progress-indicators" id="progressIndicators">
-        <div class="indicator active"></div>
-        <div class="indicator"></div>
-        <div class="indicator"></div>
-        <div class="indicator"></div>
-      </div>
-    </div>
-
-    <!--footer-->
-
-    <footer class="footer">
-      <!-- About -->
-      <div class="footer-column">
-        <img src="./images/logoheader.png" alt="eKal Academy Logo" />
-        <h3>About CityHangaround</h3>
-        <p>
-          Discover What’s Hot Around You – Events, Shops, Creators & More on
-          CityHangaround!
-        </p>
-      </div>
-
-      <!-- Platform -->
-      <div class="footer-column">
-        <h3>Platform</h3>
-        <ul>
-          <li><a href="#">Trending Events</a></li>
-          <li><a href="#">Trending Business</a></li>
-          <li><a href="#">Trending Deals</a></li>
-          <li><a href="#">Trending Blogs</a></li>
-          <li><a href="#">Trending Videos</a></li>
-          <li><a href="#">Trending Discussions</a></li>
-        </ul>
-      </div>
-
-      <!-- Company -->
-      <div class="footer-column">
-        <h3>Company</h3>
-        <ul>
-          <li><a href="#">Contact us</a></li>
-          <li><a href="#">Partnership</a></li>
-          <li><a href="#">Advertisement</a></li>
-          <li><a href="#">Influencers</a></li>
-          <li><a href="#">Add Business</a></li>
-        </ul>
-      </div>
-
-      <!-- Reach Us -->
-      <div class="footer-column">
-        <h3>Reach Us</h3>
-        <form class="contact-form" onsubmit="return validateCaptcha()">
-          <input type="text" placeholder="Name" required />
-          <input type="tel" placeholder="Phone no." required />
-          <input type="email" placeholder="Email id" required />
-          <input type="text" placeholder="City" required />
-          <textarea placeholder="Query" rows="3" required></textarea>
-          <input
-            type="text"
-            id="captchaInput"
-            placeholder="Enter Captcha"
-            required
-          />
-          <div>
-            <img
-              src="./images/captacha.png"
-              alt="Captcha"
-              style="margin-bottom: 10px"
-            />
-          </div>
-          <button type="submit">Submit</button>
-        </form>
-      </div>
-    </footer>
-
-    <!-- Footer Bottom -->
-    <!-- ✅ Footer Section -->
-    <div class="footer-bottom">
-      <p>Powered by Cityhangaround</p>
-
-      <div class="footer-links">
-        <a
-          href="https://www.cityhangaround.com/pages/custom/about-us"
-          target="_blank"
-          rel="noopener noreferrer"
-          style="display: inline-block"
-          >About Us</a
-        >
-        <a
-          href="https://www.cityhangaround.com/pages/custom/disclaimer"
-          target="_blank"
-          rel="noopener noreferrer"
-          style="display: inline-block"
-          >Disclaimer</a
-        >
-        <a
-          href="https://www.cityhangaround.com/pages/custom/privacy-policy"
-          target="_blank"
-          rel="noopener noreferrer"
-          style="display: inline-block"
-          >Privacy Policy</a
-        >
-        <a
-          href="https://www.cityhangaround.com/pages/custom/contact-us"
-          target="_blank"
-          rel="noopener noreferrer"
-          style="display: inline-block"
-          >Contact Us</a
-        >
-        <a
-          href="https://www.cityhangaround.com/pages/custom/influencer"
-          target="_blank"
-          rel="noopener noreferrer"
-          style="display: inline-block"
-          >Influencers</a
-        >
-        <a
-          href="https://www.cityhangaround.com/pages/custom/advertise"
-          target="_blank"
-          rel="noopener noreferrer"
-          style="display: inline-block"
-          >Advertise</a
-        >
-        <a
-          href="https://www.cityhangaround.com/pages/custom/terms-and-conditions"
-          target="_blank"
-          rel="noopener noreferrer"
-          style="display: inline-block"
-          >Terms & Conditions</a
-        >
-      </div>
-
-      <div class="social-icons">
-        <a href="https://www.facebook.com/Cityhangaround/" target="_blank">
-          <i class="fab fa-facebook-f"></i>
-        </a>
-        <a
-          href="https://in.linkedin.com/company/cityhangaround"
-          target="_blank"
-        >
-          <i class="fab fa-linkedin-in"></i>
-        </a>
-        <a href="https://www.instagram.com/cityhangaround/" target="_blank">
-          <i class="fab fa-instagram"></i>
-        </a>
-        <a href="https://www.youtube.com/c/Cityhangaround" target="_blank">
-          <i class="fab fa-youtube"></i>
-        </a>
-      </div>
-    </div>
-
-    <script src="./js/script.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
   </body>
 </html>
