@@ -79,6 +79,11 @@
     />
     <!-- Custom CSS for Circle & Animation -->
 
+    <!-- hero section css  -->
+     <link rel="stylesheet" href="./css/hero.css">
+       <!-- ===== Scripts ===== -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.1.0-rc.0/js/select2.min.js"></script>
   </head>
 
   <body>
@@ -240,64 +245,225 @@
     </header>
 
 
-    <!-- ===== Scripts ===== -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.1.0-rc.0/js/select2.min.js"></script>
+  
 
     <!-- Floating Particles -->
     <div class="particles-container" id="particles"></div>
 
-    <!-- Hero Container -->
+
+
+     <!-- Hero Container -->
     <div class="hero-container">
       <!-- Background Video -->
       <video
         autoplay
         muted
         loop
+        playsinline
         class="bg-video"
         poster="https://images.pexels.com/photos/2224861/pexels-photo-2224861.jpeg?auto=compress&cs=tinysrgb&w=1920&h=1080"
       >
         <source
-          src="./images/Hailuo_Video_i want to animated this video _428941074833387529.mp4"
+          src="./images/backgroundvideo.mp4"
           type="video/mp4"
         />
+        <!-- <source
+          src="./images/Hailuo_Video_i want to animated this video _428941074833387529.mp4"
+          type="video/mp4"
+        /> -->
+        <!-- <source
+          src="https://videos.pexels.com/video-files/3129671/3129671-uhd_2560_1440_30fps.mp4"
+          type="video/mp4"
+        /> -->
         Your browser does not support the video tag.
       </video>
 
       <!-- Dark Overlay -->
       <div class="overlay-dark"></div>
 
+      <!-- Mouse Follower Light -->
+      <div class="mouse-light" id="mouseLight"></div>
+
+      <!-- Corner Accents -->
+      <div class="corner-accent corner-top-left"></div>
+      <div class="corner-accent corner-bottom-right"></div>
+
+      <!-- Animated Gradient Orbs -->
+      <div class="gradient-orb orb-cyan"></div>
+      <div class="gradient-orb orb-orange"></div>
+
       <!-- Content -->
-      <div class="content">
-        <!-- Badge -->
-        <div class="badge-container">
-          <div class="location-badge">
-            <span class="badge-text">🌍 Explore Without Limitations</span>
+      <div class="content-wrapper">
+        <div class="container">
+          <div class="row justify-content-center">
+            <div class="col-12 col-lg-10 col-xl-8">
+              <div class="hero-content" id="heroContent">
+                <!-- Floating Icons -->
+                <div class="floating-icon icon-left">
+                  <i class="bi bi-geo-alt-fill"></i>
+                </div>
+                <div class="floating-icon icon-right">
+                  <i class="bi bi-graph-up-arrow"></i>
+                </div>
+
+                <!-- Badge -->
+                <div class="hero-badge" id="heroBadge">
+                  <span class="badge-shimmer"></span>
+                  <span class="badge-icon">🌍</span>
+                  <span class="badge-text">Explore Without Limitations</span>
+                  <i class="bi bi-stars badge-sparkle"></i>
+                </div>
+
+                <!-- Title -->
+                <h1 class="hero-title" id="heroTitle">
+                  <span class="title-line title-primary">
+                    <span class="title-inner">
+                      <span class="wave-letter" style="animation-delay: 0s"
+                        >D</span
+                      ><span class="wave-letter" style="animation-delay: 0.05s"
+                        >I</span
+                      ><span class="wave-letter" style="animation-delay: 0.1s"
+                        >S</span
+                      ><span class="wave-letter" style="animation-delay: 0.15s"
+                        >C</span
+                      ><span class="wave-letter" style="animation-delay: 0.2s"
+                        >O</span
+                      ><span class="wave-letter" style="animation-delay: 0.25s"
+                        >V</span
+                      ><span class="wave-letter" style="animation-delay: 0.3s"
+                        >E</span
+                      ><span class="wave-letter" style="animation-delay: 0.35s"
+                        >R</span
+                      ><span class="wave-letter" style="animation-delay: 0.4s"
+                        >&nbsp;</span
+                      ><span class="wave-letter" style="animation-delay: 0.45s"
+                        >W</span
+                      ><span class="wave-letter" style="animation-delay: 0.5s"
+                        >H</span
+                      ><span class="wave-letter" style="animation-delay: 0.55s"
+                        >A</span
+                      ><span class="wave-letter" style="animation-delay: 0.6s"
+                        >T</span
+                      ><span class="wave-letter" style="animation-delay: 0.65s"
+                        >&nbsp;</span
+                      ><span class="wave-letter" style="animation-delay: 0.7s"
+                        >Y</span
+                      ><span class="wave-letter" style="animation-delay: 0.75s"
+                        >O</span
+                      ><span class="wave-letter" style="animation-delay: 0.8s"
+                        >U</span
+                      ><span class="wave-letter" style="animation-delay: 0.85s"
+                        >&nbsp;</span
+                      ><span class="wave-letter" style="animation-delay: 0.9s"
+                        >A</span
+                      ><span class="wave-letter" style="animation-delay: 0.95s"
+                        >R</span
+                      ><span class="wave-letter" style="animation-delay: 1s"
+                        >E</span
+                      >
+                    </span>
+                    <span class="title-glow glow-red"></span>
+                  </span>
+                  <span class="title-line title-secondary">
+                    <span class="title-inner">
+                      <span class="wave-letter" style="animation-delay: 0.5s"
+                        >l</span
+                      ><span class="wave-letter" style="animation-delay: 0.55s"
+                        >o</span
+                      ><span class="wave-letter" style="animation-delay: 0.6s"
+                        >o</span
+                      ><span class="wave-letter" style="animation-delay: 0.65s"
+                        >k</span
+                      ><span class="wave-letter" style="animation-delay: 0.7s"
+                        >i</span
+                      ><span class="wave-letter" style="animation-delay: 0.75s"
+                        >n</span
+                      ><span class="wave-letter" style="animation-delay: 0.8s"
+                        >g</span
+                      ><span class="wave-letter" style="animation-delay: 0.85s"
+                        >&nbsp;</span
+                      ><span class="wave-letter" style="animation-delay: 0.9s"
+                        >f</span
+                      ><span class="wave-letter" style="animation-delay: 0.95s"
+                        >o</span
+                      ><span class="wave-letter" style="animation-delay: 1s"
+                        >r</span
+                      >
+                    </span>
+                    <span class="title-glow glow-cyan"></span>
+                  </span>
+                </h1>
+
+                <!-- Subtitle -->
+                <p class="hero-subtitle" id="heroSubtitle">
+                  <span class="subtitle-text"
+                    >The City's Best Events, Deals, Places, Stories & Many
+                    more</span
+                  >
+                  <span class="subtitle-shimmer"></span>
+                </p>
+
+                <!-- Buttons -->
+                <div class="hero-buttons" id="heroButtons">
+                  <button class="btn-hero btn-primary-hero">
+                    <span class="btn-gradient"></span>
+                    <span class="btn-overlay"></span>
+                    <i class="bi bi-play-fill btn-icon"></i>
+                    <span class="btn-text">Start Exploring</span>
+                    <span class="btn-glow"></span>
+                    <span class="btn-ripple ripple-1"></span>
+                    <span class="btn-ripple ripple-2"></span>
+                    <span class="btn-ripple ripple-3"></span>
+                  </button>
+
+                  <a
+                    href="https://www.cityhangaround.com/login"
+                    target="_blank"
+                    class="text-decoration-none"
+                  >
+                    <button class="btn-hero btn-secondary-hero">
+                      <span class="btn-gradient"></span>
+                      <span class="btn-overlay"></span>
+                      <i class="bi bi-calendar-event btn-icon"></i>
+                      <span class="btn-text">Post an Activity</span>
+                      <span class="btn-glow"></span>
+                      <span class="btn-ripple ripple-1"></span>
+                      <span class="btn-ripple ripple-2"></span>
+                      <span class="btn-ripple ripple-3"></span>
+                    </button>
+                  </a>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
+      </div>
 
-        <!-- Title -->
-        <h1 class="title">
-          <span class="title-main">DISCOVER WHAT YOU ARE</span>
-          <span class="title-highlight">looking for</span>
-        </h1>
-        <p class="title-subtitle">
-          The City's Best Events, Deals, Places, Stories & Many more
-        </p>
-
-        <!-- Buttons -->
-        <div class="buttons-container">
-          <button class="btn1 btn-primary">
-            ▶ Start Exploring
-            <div class="btn-ripple"></div>
-          </button>
-          <a href="https://www.cityhangaround.com/login" target="_blank">
-            <button class="btn2 btn-secondary">
-              📅 Post an Activity
-              <div class="btn-ripple"></div>
-            </button>
-          </a>
-        </div>
+      <!-- Bottom Wave -->
+      <div class="wave-container">
+        <svg
+          class="wave-svg wave-1"
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 1440 320"
+          preserveAspectRatio="none"
+        >
+          <path
+            fill="rgba(0, 188, 212, 0.1)"
+            d="M0,96L48,112C96,128,192,160,288,160C384,160,480,128,576,122.7C672,117,768,139,864,138.7C960,139,1056,117,1152,106.7C1248,96,1344,96,1392,96L1440,96L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"
+          ></path>
+        </svg>
+        <svg
+          class="wave-svg wave-2"
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 1440 320"
+          preserveAspectRatio="none"
+        >
+          <path
+            fill="rgba(255, 107, 53, 0.1)"
+            d="M0,192L48,197.3C96,203,192,213,288,192C384,171,480,117,576,106.7C672,96,768,128,864,154.7C960,181,1056,203,1152,197.3C1248,192,1344,160,1392,144L1440,128L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"
+          ></path>
+        </svg>
+        <div class="wave-overlay"></div>
       </div>
     </div>
 
@@ -309,7 +475,7 @@
         <h2 class="city-title">
           <span class="icon">🔥</span> Popular Destinations
         </h2>
-        <h1>TRENDING CITIES</h1>
+        <h1 class="trending-city-title">TRENDING CITIES</h1>
         <p>Discover what's happening in these amazing destinations</p>
 
         <div class="carousel">
@@ -442,11 +608,15 @@
             <a href="#" class="category-link">
               <div class="category-card">
                 <img
-                  src="https://img.icons8.com/color/96/food.png"
+                  src="./images/Food.gif"
                   alt="Food"
                 />
+                <!-- <img
+                  src="https://img.icons8.com/color/96/food.png"
+                  alt="Food"
+                /> -->
               </div>
-              <h6>Food</h6>
+              <h6 class="category-name">Food</h6>
             </a>
           </div>
 
@@ -455,11 +625,15 @@
             <a href="#" class="category-link">
               <div class="category-card">
                 <img
-                  src="https://png.pngtree.com/png-clipart/20200710/original/pngtree-medical-health-logo-png-image_4135905.jpg"
+                  src="./images/Heart Dementia Doctor.gif"
                   alt="Health"
                 />
+                <!-- <img
+                  src="https://png.pngtree.com/png-clipart/20200710/original/pngtree-medical-health-logo-png-image_4135905.jpg"
+                  alt="Health"
+                /> -->
               </div>
-              <h6>Health</h6>
+              <h6 class="category-name">Health</h6>
             </a>
           </div>
 
@@ -468,11 +642,15 @@
             <a href="#" class="category-link">
               <div class="category-card">
                 <img
-                  src="https://img.icons8.com/color/96/school.png"
+                  src="./images/Knowledge, Idea, Power, Books, Creativity, Learning Animation icon..gif"
                   alt="Education"
                 />
+                <!-- <img
+                  src="https://img.icons8.com/color/96/school.png"
+                  alt="Education"
+                /> -->
               </div>
-              <h6>Education</h6>
+              <h6 class="category-name">Education</h6>
             </a>
           </div>
 
@@ -481,11 +659,15 @@
             <a href="#" class="category-link">
               <div class="category-card">
                 <img
-                  src="https://img.icons8.com/color/96/maintenance.png"
+                  src="./images/Settings icon.gif"
                   alt="Home Service"
                 />
+                <!-- <img
+                  src="https://img.icons8.com/color/96/maintenance.png"
+                  alt="Home Service"
+                /> -->
               </div>
-              <h6>Home Repair</h6>
+              <h6 class="category-name">Home Repair</h6>
             </a>
           </div>
         </div>
@@ -495,11 +677,15 @@
             <a href="#" class="category-link">
               <div class="category-card">
                 <img
-                  src="https://img.freepik.com/free-vector/seasonal-sale-discounts-presents-purchase-visiting-boutiques-luxury-shopping-price-reduction-promotional-coupons-special-holiday-offers-vector-isolated-concept-metaphor-illustration_335657-2766.jpg?semt=ais_hybrid&w=740&q=80"
+                  src="./images/shopping cart.gif"
                   alt="Food"
                 />
+                <!-- <img
+                  src="https://img.freepik.com/free-vector/seasonal-sale-discounts-presents-purchase-visiting-boutiques-luxury-shopping-price-reduction-promotional-coupons-special-holiday-offers-vector-isolated-concept-metaphor-illustration_335657-2766.jpg?semt=ais_hybrid&w=740&q=80"
+                  alt="Food"
+                /> -->
               </div>
-              <h6>Shopping</h6>
+              <h6 class="category-name">Shopping</h6>
             </a>
           </div>
 
@@ -512,7 +698,7 @@
                   alt="Health"
                 />
               </div>
-              <h6>Event</h6>
+              <h6 class="category-name">Event</h6>
             </a>
           </div>
 
@@ -525,7 +711,7 @@
                   alt="Education"
                 />
               </div>
-              <h6>Community</h6>
+              <h6 class="category-name">Community</h6>
             </a>
           </div>
 
@@ -538,7 +724,7 @@
                   alt="Home Service"
                 />
               </div>
-              <h6>Trending</h6>
+              <h6 class="category-name">Trending</h6>
             </a>
           </div>
         </div>
@@ -639,7 +825,7 @@
         <div class="row align-items-center">
           <!-- LEFT: Content -->
           <div class="col-md-6">
-            <div class="hero-badge">
+            <div class="hero-badge-customers">
               <span>⭐ Trusted by 10,000+ businesses</span>
             </div>
             <h1 class="hero-title">
@@ -672,7 +858,7 @@
               style="width: 35rem;""
               poster="https://images.pexels.com/photos/2224861/pexels-photo-2224861.jpeg?auto=compress&cs=tinysrgb&w=1920&h=1080"
             >
-              <source src="./images/handshake.mp4" type="video/mp4" />
+              <source src="./images/handshake1.mp4" type="video/mp4" />
               Your browser does not support the video tag.
             </video>
           </div>
@@ -681,201 +867,127 @@
     </section>
 
     <!-- Features -->
-    <!-- <section id="features" class="features">
-      <div class="features-wrapper">
-        <button class="scroll-btn-fe left-btn-fe">
-          <i class="fas fa-chevron-left"></i>
-        </button>
-        <div class="features-scroll-container">
-          <div class="features-container">
-            <div class="feature-card">
-              <i class="fas fa-building feature-icon"></i>
-              <h3 class="feature-title">Add Business Listing</h3>
-              <p class="feature-description">
-                Showcase your business details, services, and contact info.
-              </p>
-              <button class="feature-button">Get Started →</button>
+   
+  <!-- animated feature section  -->
+       <section id="features" class="features">
+        <div class="container-feature">
+            <h2 class="section-title">Our <span class="gradient-text-feature">Features</span></h2>
+            <div class="row g-4">
+                <!-- Business -->
+                <div class="col-md-3 col-sm-6">
+                    <div class="feature-card">
+                        <!-- Icon with circle -->
+                        <div class="icon-circle">
+                            <i class="fas fa-building"></i>
+                        </div>
+                        <h3 class="feature-title">Add Business</h3>
+                        <p class="feature-description">
+                            Showcase your business details, services, and contact info.
+                        </p>
+                        <button class="btn-feature">
+                            <span>Get Started →</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Deals -->
+                <div class="col-md-3 col-sm-6">
+                    <div class="feature-card">
+                        <div class="icon-circle">
+                            <i class="fas fa-tags"></i>
+                        </div>
+                        <h3 class="feature-title">Add Deals</h3>
+                        <p class="feature-description">
+                            Attract new customers with offers, discounts, and promotions.
+                        </p>
+                        <button class="btn-feature">
+                            <span>Create Deal →</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Events -->
+                <div class="col-md-3 col-sm-6">
+                    <div class="feature-card">
+                        <div class="icon-circle">         
+                            <i class="fas fa-calendar-alt"></i>
+                        </div>
+                        <h3 class="feature-title">Add Events</h3>
+                        <p class="feature-description">
+                            Promote community events, workshops, and networking opportunities.
+                        </p>
+                        <button class="btn-feature">
+                            <span>Plan Event →</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Influencers -->
+                <div class="col-md-3 col-sm-6">
+                    <div class="feature-card">
+                        <div class="icon-circle">     
+                            <i class="fas fa-user-friends"></i>
+                        </div>
+                        <h3 class="feature-title">Influencers</h3>
+                        <p class="feature-description">
+                            Connect with local personalities to expand your brand.
+                        </p>
+                        <button class="btn-feature">
+                            <span>Find Influencers →</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Blog -->
+                <div class="col-md-3 col-sm-6">
+                    <div class="feature-card">
+                        <div class="icon-circle">       
+                            <i class="fas fa-blog"></i>
+                        </div>
+                        <h3 class="feature-title">Add Blog</h3>
+                        <p class="feature-description">
+                            Share industry insights, stories, and updates through blogging.
+                        </p>
+                        <button class="btn-feature">
+                            <span>Write Blog →</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Community -->
+                <div class="col-md-3 col-sm-6">
+                    <div class="feature-card">
+                        <div class="icon-circle">          
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <h3 class="feature-title">Join Community</h3>
+                        <p class="feature-description">
+                            Engage with like-minded individuals and businesses locally.
+                        </p>
+                        <button class="btn-feature">
+                            <span>Join Now →</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Videos -->
+                <div class="col-md-3 col-sm-6">
+                    <div class="feature-card">
+                        <div class="icon-circle">          
+                            <i class="fas fa-video"></i>
+                        </div>
+                        <h3 class="feature-title">Trending Videos</h3>
+                        <p class="feature-description">
+                            Discover and share popular video content around your niche.
+                        </p>
+                        <button class="btn-feature">
+                            <span>Explore Now →</span>
+                        </button>
+                    </div>
+                </div>
             </div>
-            <div class="feature-card">
-              <i class="fas fa-tags feature-icon"></i>
-              <h3 class="feature-title">Add Deals</h3>
-              <p class="feature-description">
-                Attract new customers with offers, discounts, and promotions.
-              </p>
-              <button class="feature-button">Create Deal →</button>
-            </div>
-            <div class="feature-card">
-              <i class="fas fa-calendar-alt feature-icon"></i>
-              <h3 class="feature-title">Add Events</h3>
-              <p class="feature-description">
-                Promote community events, workshops, and networking
-                opportunities.
-              </p>
-              <button class="feature-button">Plan Event →</button>
-            </div>
-            <div class="feature-card">
-              <i class="fas fa-user-friends feature-icon"></i>
-              <h3 class="feature-title">Work with Influencers</h3>
-              <p class="feature-description">
-                Connect with local personalities to expand your brand.
-              </p>
-              <button class="feature-button">Find Influencers →</button>
-            </div>
-            <div class="feature-card">
-              <i class="fas fa-blog feature-icon"></i>
-              <h3 class="feature-title">Add Blog</h3>
-              <p class="feature-description">
-                Share industry insights, stories, and updates through blogging.
-              </p>
-              <button class="feature-button">Write Blog →</button>
-            </div>
-
-            <div class="feature-card">
-              <i class="fas fa-users feature-icon"></i>
-              <h3 class="feature-title">Join Community</h3>
-              <p class="feature-description">
-                Engage with like-minded individuals and businesses locally.
-              </p>
-              <button class="feature-button">Join Now →</button>
-            </div>
-
-            <div class="feature-card">
-              <i class="fas fa-video feature-icon"></i>
-              <h3 class="feature-title">Trending Videos</h3>
-              <p class="feature-description">
-                Discover and share popular video content around your niche.
-              </p>
-              <button class="feature-button">Explore Now →</button>
-            </div>
-          </div>
         </div>
-        <button class="scroll-btn-fe right-btn-fe">
-          <i class="fas fa-chevron-right"></i>
-        </button>
-      </div>
-      <div class="feature-dots" id="featureDots"></div>
-    </section> -->
-  
-    <!-- new latest 2 2  -->/
-     <section id="features" class="features">
-  <div class="container">
-    <div class="row g-4">
-      <!-- Business -->
-      <div class="col-md-6">
-        <div class="feature-card text-center p-4 shadow-sm h-100">
-          <!-- Icon with circle -->
-          <div class="icon-circle mb-3 mx-auto">
-            <i class="fas fa-building"></i>
-          </div>
-          <h3 class="feature-title">Add Business</h3>
-          <p class="feature-description">
-            Showcase your business details, services, and contact info.
-          </p>
-          <button class="btn btn-outline-danger">
-            Get Started →
-          </button>
-        </div>
-      </div>
-
-
-      <!-- Deals -->
-      <div class="col-md-6">
-        <div class="feature-card text-center p-4 shadow-sm h-100">
-          <div class="icon-circle mb-3 mx-auto">
-            <i class="fas fa-tags"></i>
-          </div>
-           <h3 class="feature-title">Add Deals</h3>
-          <p class="feature-description">
-            Attract new customers with offers, discounts, and promotions.
-          </p>
-          <button class="btn btn-outline-danger">
-            Create Deal →
-          </button>
-        </div>
-      </div>
-
-      <!-- Events -->
-      <div class="col-md-6">
-        <div class="feature-card text-center p-4 shadow-sm h-100">
-           <div class="icon-circle mb-3 mx-auto">         
-              <i class="fas fa-calendar-alt "></i>
-          </div>
-          <h3 class="feature-title">Add Events</h3>
-          <p class="feature-description">
-            Promote community events, workshops, and networking opportunities.
-          </p>
-          <button class="btn btn-outline-danger">
-            Plan Event →
-          </button>
-        </div>
-      </div>
-
-      <!-- Influencers -->
-      <div class="col-md-6">
-        <div class="feature-card text-center p-4 shadow-sm h-100">
-           <div class="icon-circle mb-3 mx-auto">     
-            <i class="fas fa-user-friends "></i>
-          </div>
-          <h3 class="feature-title">Influencers</h3>
-          <p class="feature-description">
-            Connect with local personalities to expand your brand.
-          </p>
-          <button class="btn btn-outline-danger">
-            Find Influencers →
-          </button>
-        </div>
-      </div>
-
-      <!-- Blog -->
-      <div class="col-md-6">
-        <div class="feature-card text-center p-4 shadow-sm h-100">
-           <div class="icon-circle mb-3 mx-auto">       
-             <i class="fas fa-blog "></i>
-          </div>
-          <h3 class="feature-title">Add Blog</h3>
-          <p class="feature-description">
-            Share industry insights, stories, and updates through blogging.
-          </p>
-          <button class="btn btn-outline-danger">
-            Write Blog →
-          </button>
-        </div>
-      </div>
-
-      <!-- Community -->
-      <div class="col-md-6">
-        <div class="feature-card text-center p-4 shadow-sm h-100">
-           <div class="icon-circle mb-3 mx-auto">          
-             <i class="fas fa-users "></i>
-           </div>
-          <h3 class="feature-title">Join Community</h3>
-          <p class="feature-description">
-            Engage with like-minded individuals and businesses locally.
-          </p>
-          <button class="btn btn-outline-danger">
-            Join Now →
-          </button>
-        </div>
-      </div>
-
-      <!-- Videos -->
-      <div class="col-md-6">
-        <div class="feature-card text-center p-4 shadow-sm h-100">
-           <div class="icon-circle mb-3 mx-auto">          
-             <i class="fas fa-video "></i>
-           </div>
-          <h3 class="feature-title">Trending Videos</h3>
-          <p class="feature-description">
-            Discover and share popular video content around your niche.
-          </p>
-          <button class="btn btn-outline-danger">
-            Explore Now →
-          </button>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
+    </section>
 
     <!-- explore city hangaround -->
 
@@ -883,42 +995,14 @@
       <div class="header-explore">
         <h2>
           Explore
-          <span
-            style="
-              background: linear-gradient(90deg, #ff4d3a, #ff874d);
-              -webkit-background-clip: text;
-              -webkit-text-fill-color: transparent;
-            "
+          <span class="gradient-text-cityhangaround"
             >cityhangaround</span
           >
           now
         </h2>
       </div>
 
-      <!-- <div class="stats-container">
-        <section class="stats-section" id="statsSection">
-          <div class="stat">
-            <div class="icon-explore">📈</div>
-            <h2 class="count" data-target="100000">0</h2>
-            <p>Business Listed</p>
-          </div>
-          <div class="stat">
-            <div class="icon-explore">👥</div>
-            <h2 class="count" data-target="2000">0</h2>
-            <p>Happy Clients</p>
-          </div>
-          <div class="stat">
-            <div class="icon-explore">🎯</div>
-            <h2 class="count" data-target="1000">0</h2>
-            <p>Campaign Complete</p>
-          </div>
-          <div class="stat">
-            <div class="icon-explore">🏆</div>
-            <h2 class="count" data-target="15">0</h2>
-            <p>Years Experience</p>
-          </div>
-        </section>
-      </div> -->
+ 
     </div>
     <!-- //new counters ........  -->/
     <section class="counter-section">
@@ -927,7 +1011,7 @@
           <!-- Left image -->
           <div class="col-md-6 text-center mb-4 mb-md-0">
             <img
-              src="./images/local-deal.png"
+              src="./images/local-deal-removebg-preview-Picsart-AiImageEnhancer.png"
               alt="Traveler"
               class="img-fluid rounded"
             />
@@ -936,6 +1020,19 @@
               alt="Traveler"
               class="img-fluid rounded"
             /> -->
+            <!-- <video
+                autoplay
+                muted
+                loop
+                class="img-fluid rounded"
+                poster="https://images.pexels.com/photos/2224861/pexels-photo-2224861.jpeg?auto=compress&cs=tinysrgb&w=1920&h=1080"
+              >
+              <source
+                src="./images/business7advertisement.mp4"
+                type="video/mp4"
+              />
+              Your browser does not support the video tag.
+            </video> -->
           </div>
 
           <!-- Right content -->
@@ -945,7 +1042,7 @@
               Here Is Great Opportunity For <br />
               Business & Advertisement
             </h2>
-            <p class="mt-3">
+            <p class="mt-3 explore-content">
               Welcome to CityHang Around — your one-stop destination for
               discovering local businesses, exploring marketplace deals, and
               promoting your brand through powerful advertisements. Whether
@@ -1578,437 +1675,7 @@
     </div>
 
     <script src="./js/script.js"></script>
-    <script>
-      const counters = document.querySelectorAll(".count");
-      let hasAnimated = false;
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 
-      function animateCounter(counter, target, duration = 2000) {
-        let startTimestamp = null;
-
-        const step = (timestamp) => {
-          if (!startTimestamp) startTimestamp = timestamp;
-          const progress = timestamp - startTimestamp;
-          const value = Math.min(
-            Math.floor((progress / duration) * target),
-            target
-          );
-          counter.innerText = value.toLocaleString();
-          if (value < target) {
-            window.requestAnimationFrame(step);
-          }
-        };
-
-        window.requestAnimationFrame(step);
-      }
-
-      const observer = new IntersectionObserver(
-        (entries) => {
-          entries.forEach((entry) => {
-            if (entry.isIntersecting && !hasAnimated) {
-              counters.forEach((counter, index) => {
-                const target = parseInt(counter.getAttribute("data-target"));
-                setTimeout(() => {
-                  animateCounter(counter, target);
-                }, index * 200);
-              });
-              hasAnimated = true;
-            }
-          });
-        },
-        { threshold: 0.3 }
-      );
-
-      observer.observe(document.getElementById("statsSection"));
-
-      // Add smooth scrolling with mouse wheel
-      const statsContainer = document.querySelector(".stats-container");
-      statsContainer.addEventListener("wheel", (e) => {
-        if (e.deltaY !== 0) {
-          e.preventDefault();
-          statsContainer.scrollLeft += e.deltaY;
-        }
-      });
-
-      // Add touch scrolling momentum for mobile
-      let isScrolling = false;
-      let startX = 0;
-      let scrollLeft = 0;
-
-      statsContainer.addEventListener("touchstart", (e) => {
-        isScrolling = true;
-        startX = e.touches[0].pageX - statsContainer.offsetLeft;
-        scrollLeft = statsContainer.scrollLeft;
-      });
-
-      statsContainer.addEventListener("touchmove", (e) => {
-        if (!isScrolling) return;
-
-        const x = e.touches[0].pageX - statsContainer.offsetLeft;
-        const walk = (x - startX) * 2;
-        statsContainer.scrollLeft = scrollLeft - walk;
-      });
-
-      statsContainer.addEventListener("touchend", () => {
-        isScrolling = false;
-      });
-    </script>
-    <script>
-      document.addEventListener("DOMContentLoaded", () => {
-        const wrapper = document.querySelector(".cards-wrapper");
-        const cards = document.querySelectorAll(".card");
-        const prevBtn = document.querySelector(".carousel-btn.prev");
-        const nextBtn = document.querySelector(".carousel-btn.next");
-        const pagination = document.querySelector(".carousel-pagination");
-
-        if (!wrapper || cards.length === 0) return;
-
-        let currentPage = 0;
-
-        // Determine scroll per page based on screen width
-        function getPageWidth() {
-          if (window.innerWidth < 768) {
-            // Mobile: scroll by 1 card
-            return cards[0].offsetWidth + 20; // card + margin
-          } else {
-            // Desktop: scroll by visible area
-            return wrapper.clientWidth;
-          }
-        }
-
-        function getTotalPages() {
-          return Math.ceil(wrapper.scrollWidth / getPageWidth());
-        }
-
-        // Render dots
-        function renderDots() {
-          pagination.innerHTML = "";
-          const totalPages = getTotalPages();
-          for (let i = 0; i < totalPages; i++) {
-            const dot = document.createElement("span");
-            dot.classList.add("dot");
-            if (i === 0) dot.classList.add("active");
-            dot.addEventListener("click", () => goToPage(i));
-            pagination.appendChild(dot);
-          }
-        }
-
-        function updateButtons() {
-          const totalPages = getTotalPages();
-          prevBtn.style.display = currentPage === 0 ? "none" : "block";
-          nextBtn.style.display =
-            currentPage >= totalPages - 1 ? "none" : "block";
-
-          const dots = pagination.querySelectorAll(".dot");
-          dots.forEach((dot, i) =>
-            dot.classList.toggle("active", i === currentPage)
-          );
-        }
-
-        function goToPage(page) {
-          const totalPages = getTotalPages();
-          currentPage = Math.max(0, Math.min(page, totalPages - 1));
-          wrapper.scrollTo({
-            left: getPageWidth() * currentPage,
-            behavior: "smooth",
-          });
-          updateButtons();
-        }
-
-        prevBtn.addEventListener("click", () => goToPage(currentPage - 1));
-        nextBtn.addEventListener("click", () => goToPage(currentPage + 1));
-
-        window.addEventListener("resize", () => {
-          renderDots();
-          goToPage(currentPage); // keep current page in view
-        });
-
-        // Initialize
-        renderDots();
-        updateButtons();
-      });
-    </script>
-     <script>
-      // DOM Content Loaded
-      document.addEventListener("DOMContentLoaded", function () {
-        // Initialize all animations and interactions
-        initParticles();
-        initButtonRipples();
-        initCounterAnimation();
-        initSearchInteraction();
-        initScrollAnimations();
-      });
-
-      // Floating Particles Animation
-      function initParticles() {
-        const particlesContainer = document.getElementById("particles");
-        const particleCount = 30;
-
-        for (let i = 0; i < particleCount; i++) {
-          createParticle(particlesContainer);
-        }
-
-        // Create new particles periodically
-        setInterval(() => {
-          if (particlesContainer.children.length < particleCount) {
-            createParticle(particlesContainer);
-          }
-        }, 2000);
-      }
-
-      function createParticle(container) {
-        const particle = document.createElement("div");
-        particle.className = "particle";
-
-        // Random positioning
-        particle.style.left = Math.random() * 100 + "%";
-        particle.style.top = "100%";
-
-        // Random animation duration and delay
-        const duration = 4 + Math.random() * 4;
-        const delay = Math.random() * 2;
-
-        particle.style.animationDuration = duration + "s";
-        particle.style.animationDelay = delay + "s";
-
-        container.appendChild(particle);
-
-        // Remove particle after animation
-        setTimeout(() => {
-          if (particle.parentNode) {
-            particle.parentNode.removeChild(particle);
-          }
-        }, (duration + delay) * 1000);
-      }
-
-      // Button Ripple Effect
-      function initButtonRipples() {
-        const buttons = document.querySelectorAll(".btn");
-
-        buttons.forEach((button) => {
-          button.addEventListener("click", function (e) {
-            const ripple = this.querySelector(".btn-ripple");
-            const rect = this.getBoundingClientRect();
-            const size = Math.max(rect.width, rect.height);
-            const x = e.clientX - rect.left - size / 2;
-            const y = e.clientY - rect.top - size / 2;
-
-            ripple.style.width = ripple.style.height = size + "px";
-            ripple.style.left = x + "px";
-            ripple.style.top = y + "px";
-
-            ripple.style.animation = "none";
-            ripple.offsetHeight; // Trigger reflow
-            ripple.style.animation = "ripple 0.6s linear";
-          });
-        });
-      }
-
-      // Enhanced Search Interaction
-      function initSearchInteraction() {
-        const searchInput = document.getElementById("look");
-        const searchBtn = document.querySelector(".search-btn");
-
-        // Search input enhancements
-        searchInput.addEventListener("focus", function () {
-          this.parentElement.style.transform = "translateY(-2px) scale(1.02)";
-        });
-
-        searchInput.addEventListener("blur", function () {
-          this.parentElement.style.transform = "";
-        });
-
-        // Search functionality
-        searchBtn.addEventListener("click", function () {
-          const query = searchInput.value.trim();
-          if (query) {
-            // Add loading state
-            this.innerHTML =
-              '<span class="btn-icon">⏳</span><span class="btn-text">Searching...</span>';
-            this.disabled = true;
-
-            // Simulate search (replace with actual search logic)
-            setTimeout(() => {
-              this.innerHTML =
-                '<span class="btn-icon">✓</span><span class="btn-text">Search</span>';
-              this.disabled = false;
-
-              // Reset after 2 seconds
-              setTimeout(() => {
-                this.innerHTML = "Search";
-              }, 2000);
-            }, 1500);
-          }
-        });
-
-        // Enter key support
-        searchInput.addEventListener("keypress", function (e) {
-          if (e.key === "Enter") {
-            searchBtn.click();
-          }
-        });
-      }
-
-      // Scroll-based Animations
-      function initScrollAnimations() {
-        // Parallax effect for background video
-        window.addEventListener("scroll", function () {
-          const scrolled = window.pageYOffset;
-          const video = document.querySelector(".bg-video");
-          if (video) {
-            video.style.transform = `translateY(${scrolled * 0.5}px)`;
-          }
-        });
-
-        // Feature cards hover enhancement
-        const featureCards = document.querySelectorAll(".feature-card");
-        featureCards.forEach((card, index) => {
-          card.addEventListener("mouseenter", function () {
-            // Add subtle animation to other cards
-            featureCards.forEach((otherCard, otherIndex) => {
-              if (otherIndex !== index) {
-                otherCard.style.transform = "scale(0.95)";
-                otherCard.style.opacity = "0.7";
-              }
-            });
-          });
-
-          card.addEventListener("mouseleave", function () {
-            // Reset other cards
-            featureCards.forEach((otherCard) => {
-              otherCard.style.transform = "";
-              otherCard.style.opacity = "";
-            });
-          });
-        });
-      }
-
-      // Advanced Button Interactions
-      document.addEventListener("DOMContentLoaded", function () {
-        const btn1 = document.getElementById("btn1");
-        const btn2 = document.getElementById("btn2");
-
-        // Start Exploring button
-        btn1.addEventListener("click", function () {
-          // Add click animation
-          this.style.transform = "scale(0.95)";
-          setTimeout(() => {
-            this.style.transform = "";
-          }, 150);
-
-          // Add your exploration logic here
-          console.log("Starting exploration...");
-        });
-
-        // Enhanced hover effects
-        const allButtons = document.querySelectorAll(".btn");
-        allButtons.forEach((button) => {
-          button.addEventListener("mouseenter", function () {
-            this.style.transform = "translateY(-3px) scale(1.05)";
-          });
-
-          button.addEventListener("mouseleave", function () {
-            this.style.transform = "";
-          });
-        });
-      });
-
-      // Responsive Enhancements
-      function handleResize() {
-        const content = document.querySelector(".content");
-        const windowWidth = window.innerWidth;
-
-        // Adjust particle count based on screen size
-        const particlesContainer = document.getElementById("particles");
-        const currentParticles = particlesContainer.children.length;
-        const targetParticles = windowWidth < 768 ? 15 : 30;
-
-        if (currentParticles > targetParticles) {
-          // Remove excess particles
-          for (let i = currentParticles - 1; i >= targetParticles; i--) {
-            const particle = particlesContainer.children[i];
-            if (particle) {
-              particle.remove();
-            }
-          }
-        }
-      }
-
-      window.addEventListener("resize", handleResize);
-
-      // Performance Optimization
-      function optimizePerformance() {
-        // Reduce animations on low-end devices
-        if (
-          navigator.hardwareConcurrency &&
-          navigator.hardwareConcurrency < 4
-        ) {
-          document.body.classList.add("reduced-motion");
-        }
-
-        // Pause video when not visible
-        const video = document.querySelector(".bg-video");
-        const observer = new IntersectionObserver((entries) => {
-          entries.forEach((entry) => {
-            if (entry.isIntersecting) {
-              video.play();
-            } else {
-              video.pause();
-            }
-          });
-        });
-
-        if (video) {
-          observer.observe(video);
-        }
-      }
-
-      // Initialize performance optimizations
-      document.addEventListener("DOMContentLoaded", optimizePerformance);
-
-      // Smooth scrolling for any anchor links
-      document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
-        anchor.addEventListener("click", function (e) {
-          e.preventDefault();
-          const target = document.querySelector(this.getAttribute("href"));
-          if (target) {
-            target.scrollIntoView({
-              behavior: "smooth",
-              block: "start",
-            });
-          }
-        });
-      });
-
-      // Add loading state management
-      window.addEventListener("load", function () {
-        document.body.classList.add("loaded");
-
-        // Trigger any load-dependent animations
-        const mainContent = document.getElementById("mainContent");
-        if (mainContent) {
-          mainContent.style.animationPlayState = "running";
-        }
-      });
-    </script>
-    <!-- faq -->
-         <script>
-      const faqItems = document.querySelectorAll(".faq li");
-
-      faqItems.forEach((item) => {
-        const link = item.querySelector("a");
-        link.addEventListener("click", () => {
-          const isActive = item.classList.contains("active");
-
-          faqItems.forEach((otherItem) => {
-            otherItem.classList.remove("active");
-          });
-
-          if (!isActive) {
-            item.classList.add("active");
-          }
-        });
-      });
-    </script>
-      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
   </body>
 </html>
