@@ -84,6 +84,59 @@
        <!-- ===== Scripts ===== -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.1.0-rc.0/js/select2.min.js"></script>
+        <style>
+      /* Custom styles for the section */
+      .client-section {
+        padding: 50px 0;
+     
+        text-align: center;
+      }
+
+      .client-logo-box {
+        padding: 20px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 150px; /* Standard height for all logo boxes */
+        margin-bottom: 30px; /* Space between rows */
+      }
+
+      .client-logo-box img {
+        max-width: 100%;
+        max-height: 100%;
+        width: auto;
+        height: auto;
+        /* Optional: Add a smooth grayscale effect on hover */
+        /* filter: grayscale(100%);
+        opacity: 0.7; */
+        transition: all 0.3s ease-in-out;
+      }
+
+      .client-logo-box img:hover {
+        filter: grayscale(0%);
+        opacity: 1;
+        transform: scale(1.05);
+      }
+
+      .section-title {
+        font-size: 1.7rem;
+        font-weight: 700;
+        color: #1e293b;
+        line-height: 1.4;
+        /* border-b: 4px solid #ff2f2f; */
+        padding-left: 15px;
+      }
+
+      /* Adjust columns for different screen sizes */
+      /* md: 5 columns on medium and larger screens */
+      /* sm: 3 columns on small screens */
+      /* xs: 2 columns on extra-small screens */
+      @media (min-width: 768px) {
+        .col-md-5-custom {
+          width: 20%; /* 100% / 5 logos = 20% */
+        }
+      }
+    </style>
   </head>
 
   <body>
@@ -1130,10 +1183,10 @@
     </section> -->
 
     <!-- // new client  -->
-    <section class="client-section">
+    <!-- <section class="client-section">
       <div class="container">
         <div class="row align-items-center">
-          <!-- Left Text -->
+       
           <div class="col-md-3 mb-4 mb-md-0">
             <div class="trusted-text">
               Trusted by our<br />
@@ -1141,114 +1194,167 @@
             </div>
           </div>
 
-          <!-- Vertical line between text and logos -->
-          <!-- <div class="col-md-1 d-none d-md-flex justify-content-center">
-            <div class="vertical-line"></div>
-          </div> -->
-
-          <!-- Logos Grid -->
           <div class="col-md-8">
-            <!-- 1st Row -->
+            
             <div class="row text-center">
               <div class="col-6 col-sm-3">
                 <img
-                  src="images/client1.png"
+                  src="images/The SoulButtonsLogo.jpg"
                   alt="Gem"
                   class="img-fluid client-logo"
                 />
               </div>
               <div class="col-6 col-sm-3">
                 <img
-                  src="images/client3.png"
+                  src="images/Classplus Logo.png"
                   alt="Hopin"
                   class="img-fluid client-logo"
                 />
               </div>
               <div class="col-6 col-sm-3">
                 <img
-                  src="images/client2.png"
+                  src="images/De-Brewerz LOGO.jpg"
                   alt="Outline"
                   class="img-fluid client-logo"
                 />
               </div>
               <div class="col-6 col-sm-3">
                 <img
-                  src="images/client4.png"
+                  src="images/dhpgraphics.png"
                   alt="HelpScout"
                   class="img-fluid client-logo"
                 />
               </div>
             </div>
 
-            <!-- Horizontal line -->
+        
             <hr class="client-hr" />
 
-            <!-- 2nd Row -->
+         
             <div class="row text-center">
               <div class="col-6 col-sm-3">
                 <img
-                  src="images/client1.png"
+                  src="images/DNJK-Logo-New.webp"
                   alt="Gem"
                   class="img-fluid client-logo"
                 />
               </div>
               <div class="col-6 col-sm-3">
                 <img
-                  src="images/client3.png"
+                  src="images/ebizee.png"
                   alt="Hopin"
                   class="img-fluid client-logo"
                 />
               </div>
               <div class="col-6 col-sm-3">
                 <img
-                  src="images/client2.png"
+                  src="images/genuine_hosting_reviews_logo.jpg"
                   alt="Outline"
                   class="img-fluid client-logo"
                 />
               </div>
               <div class="col-6 col-sm-3">
                 <img
-                  src="images/client4.png"
+                  src="images/shri_exports_logo.jpg"
+                  alt="HelpScout"
+                  class="img-fluid client-logo"
+                />
+              </div>
+              <div class="col-6 col-sm-3">
+                <img
+                  src="images/thequeensway.png"
                   alt="HelpScout"
                   class="img-fluid client-logo"
                 />
               </div>
             </div>
 
-            <!-- Horizontal line -->
-            <!-- <hr class="client-hr" /> -->
+          
+          </div>
+        </div>
+      </div>
+    </section> -->
 
-            <!-- 3rd Row -->
-            <!-- <div class="row text-center">
-              <div class="col-6 col-sm-3">
-                <img
-                  src="images/client1.png"
-                  alt="Gem"
-                  class="img-fluid client-logo"
-                />
-              </div>
-              <div class="col-6 col-sm-3">
-                <img
-                  src="images/client3.png"
-                  alt="Hopin"
-                  class="img-fluid client-logo"
-                />
-              </div>
-              <div class="col-6 col-sm-3">
-                <img
-                  src="images/client2.png"
-                  alt="Outline"
-                  class="img-fluid client-logo"
-                />
-              </div>
-              <div class="col-6 col-sm-3">
-                <img
-                  src="images/client4.png"
-                  alt="HelpScout"
-                  class="img-fluid client-logo"
-                />
-              </div>
-            </div> -->
+        <section class="client-section">
+      <div class="container">
+        <h2 class="section-title"> Trusted by our<br />
+              customers & partners</h2>
+
+        <div class="row justify-content-center">
+          <div class="col-6 col-sm-4 col-md-5-custom">
+            <div class="client-logo-box">
+              <img
+                src="images/The_SoulButtonsLogo-removebg-preview.png"
+                alt="Client Logo 1"
+              />
+            </div>
+          </div>
+          <div class="col-6 col-sm-4 col-md-5-custom">
+            <div class="client-logo-box">
+              <img
+                src="images/Classplus_Logo-removebg-preview.png"
+                alt="Client Logo 2"
+              />
+            </div>
+          </div>
+          <div class="col-6 col-sm-4 col-md-5-custom">
+            <div class="client-logo-box">
+              <img
+                src="images/De-Brewerz LOGO.jpg"
+                alt="Client Logo 3"
+              />
+            </div>
+          </div>
+          <div class="col-6 col-sm-4 col-md-5-custom">
+            <div class="client-logo-box">
+              <img
+                src="images/dhpgraphics.png"
+                alt="Client Logo 4"
+              />
+            </div>
+          </div>
+          <div class="col-6 col-sm-4 col-md-5-custom">
+            <div class="client-logo-box">
+              <img
+                src="images/DNJK-Logo-New.webp"
+                alt="Client Logo 5"
+              />
+            </div>
+          </div>
+
+          <div class="col-6 col-sm-4 col-md-5-custom">
+            <div class="client-logo-box">
+              <img
+                src="images/ebizee.png"
+                alt="Client Logo 6"
+              />
+            </div>
+          </div>
+          <div class="col-6 col-sm-4 col-md-5-custom">
+            <div class="client-logo-box">
+              <img
+                src="images/genuine_hosting_reviews_logo-removebg-preview.png"
+                alt="Client Logo 7"
+              />
+            </div>
+          </div>
+          <div class="col-6 col-sm-4 col-md-5-custom">
+            <div class="client-logo-box">
+              <img
+                src="images/shri_exports_logo.jpg"
+                alt="Client Logo 8"
+              />
+            </div>
+          </div>
+          <div class="col-6 col-sm-4 col-md-5-custom">
+            <div class="client-logo-box">
+              <img
+                src="images/thequeensway.png"
+                alt="Client Logo 9"
+              />
+            </div>
+          </div>
+         
           </div>
         </div>
       </div>
